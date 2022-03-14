@@ -1,1 +1,1 @@
-web: gunicorn mochi-restaurant.wsgi
+web: gunicorn mochi_restaurant.wsgi
