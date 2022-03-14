@@ -1,0 +1,1 @@
+web: gunicorn mochi-restaurant.wsgi
