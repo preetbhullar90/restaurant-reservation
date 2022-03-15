@@ -1745,7 +1745,7 @@ section {
 .text{
   display: flex;
   flex-direction: column;
- 
+
 }
 #resturant-title,#resturant-content{
   padding-top: 3em;
