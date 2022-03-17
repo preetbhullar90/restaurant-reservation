@@ -443,7 +443,8 @@ h1, h2, h3, h4, h5, h6 {
 #hero {
   width: 100%;
   height: 60vh;
-  background: url("static/img/hero-bg.jpg") top center;
+  background: url("https://res.cloudinary.com/codeinstitute/raw/upload/v1/static/css/static/img/hero-bg.a369d8921565.jpg") top center;
+  
   background-size: cover;
   position: relative;
   padding: 0;
