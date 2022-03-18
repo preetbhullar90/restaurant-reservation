@@ -61,13 +61,13 @@
           <li><a class="nav-link scrollto" href="{% url 'aboutus:aboutus_list' %}">About us</a></li>
           <li><a class="nav-link scrollto" href="{% url 'menu:meal_list' %}">Menu</a></li>
           <li><a class="nav-link scrollto" href="#">Your booking</a></li>
-          <li><a class="nav-link scrollto" href="#">Contact</a></li>
+          <li><a class="nav-link scrollto" href="{% url 'contact:send_email' %}">Contact</a></li>
           {% if user.is_authenticated %}
           <span class="nav-link scrollto">Hello, {{request.user}}</span>
           <li><a class="nav-link scrollto" href="#">Logout</a></li>
           {% else %}
           <li><a class="nav-link scrollto" href="#">Login</a></li>
-          <li><a class="nav-link scrollto" href="{#">Register</a></li>
+          <li><a class="nav-link scrollto" href="#">Register</a></li>
           {% endif %}
         </ul>
         <i class="bi bi-list mobile-nav-toggle"></i>
@@ -137,7 +137,7 @@
               <li><i class="bx bx-chevron-right"></i> <a href="{% url 'home:home' %}">Home</a></li>
               <li><i class="bx bx-chevron-right"></i> <a href="{% url 'aboutus:aboutus_list' %}">About us</a></li>
               <li><i class="bx bx-chevron-right"></i> <a href="{% url 'menu:meal_list' %}">Menu</a></li>
-              <li><i class="bx bx-chevron-right"></i> <a href="#">Contact</a></li>
+              <li><i class="bx bx-chevron-right"></i> <a href="{% url 'contact:send_email' %}">Contact</a></li>
               <li><i class="bx bx-chevron-right"></i> <a href="#">Book a table</a></li>
             </ul>
           </div>
