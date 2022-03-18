@@ -1,35 +1,33 @@
-from django.shortcuts import render,redirect
-from django.core.mail import send_mail, BadHeaderError
-from django.http import HttpResponse, HttpResponseRedirect
+""" All import libraries from django """
+from django.shortcuts import render
+from django.core.mail import send_mail
+from django.http import HttpResponseRedirect
 from django.contrib import messages
-from .forms import ContactForm
 from django.conf import settings
-
+from .forms import ContactForm
 
 
 def send_email(request):
-    if request.method == 'POST':
 
+    """ Email sending form """
+    if request.method == 'POST':
         form = ContactForm(request.POST)
         if form.is_valid():
-            name = form.cleaned_data['name']
-            email = form.cleaned_data['email']
+            customer_name = form.cleaned_data['name']
+            email_from = form.cleaned_data['email']
+            subject = (f'Message from {customer_name}, {email_from}')
             message = form.cleaned_data['message']
+            recipient_list = [settings.EMAIL_HOST_USER]
 
-            send_mail(
-                name,
-                message,
-                email,
-                ['admin@example.com']
-                )
+            send_mail(subject, message, email_from, recipient_list)
 
-            messages.add_message(request, messages.SUCCESS, f" {name} ")
+            #messages.add_message(request, messages.SUCCESS, f" {name} ")
 
         return HttpResponseRedirect('/contact/')
 
     else:
         form = ContactForm()
         context = {
-            'form' : form
+            'form': form
         }
         return render(request, 'contact/contact.html', context)
