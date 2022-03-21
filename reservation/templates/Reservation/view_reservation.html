@@ -1,0 +1,114 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+
+ <!-- ======= Book A Table Section ======= -->
+ <section id="book-a-table" class="book-a-table">
+    <div class="container" data-aos="fade-up">
+
+      <div class="section-title">
+        
+        <h2>Reservation</h2>
+        <p>Your Booking</p>
+        {% for message in messages %}
+        <center>
+          <div class="alert alert-success" role="alert" id="msg">
+            <h4 class="alert-heading">{{message}}</h4>
+          
+          
+          
+        </div>
+        </center>
+          <br>
+          <br>
+      {% endfor %}  
+
+
+        <table class="table border-dark mt-4" style="background-color: #cda45e;">
+          
+            <tr class="text-white">
+              <th scope="col">Id</th>
+              <th scope="col">People</th>
+              <th scope="col">Time</th>
+              <th scope="col">Date</th>
+              <th scope="col">Go Back</th>
+              <th scope="col">Update</th>
+              <th scope="col">Delete</th>
+            </tr>
+            {% for res in pp %}
+         
+          
+            <tr class="bg-dark text-white border border-dark">
+              <th scope="row">{{res.id}}</th>
+              <td>{{res.persons}}</td>
+              <td>{{res.time}}</td>
+              <td>{{res.date}}</td> 
+              <td>
+                
+
+                <div class="input-group-append">
+                  <a class="btn btn-primary" href="{% url 'reservation:reserve_table' %}">
+                      <span class="text-white h-100">
+                        <i class="fa fa-arrow-left"></i></i></span> Back </a>
+                    </div>
+              </td> 
+              <td>
+              
+
+                <div class="input-group-append">
+                  <a class="btn btn-success " href="{% url 'reservation:update_order' res.id%}">
+                      <span class="text-white h-100">
+                        <i class="fa fa-pen"></i></span> Edit </a>
+                    </div>
+
+                
+              </td> 
+              <td>
+                <div class="input-group-append">
+                  <a class="btn btn-danger " href="{% url 'reservation:delete_order' res.id%}">
+                      <span class="text-white h-100">
+                        <i class="fa fa-trash x-5"></i></span> Cancel </a>
+                    </div>
+              </td> 
+              
+              
+            </tr>
+            {% endfor %}
+           
+          
+        </table>
+        
+      </div>
+
+      
+     
+      <!-- <form action="" method="POST" role="form">
+       {% csrf_token %}
+       {{form}}
+         <input type="submit" name="submit">
+       
+     </form>  -->
+      
+      <!-- {% for messagess in messages %}
+      <center>
+        <div class="alert alert-success" role="alert" id="msg">
+          <h4 class="alert-heading">Thank you!</h4>
+        <h5>Your table booking done successfully and we will respond shortly...</h5>
+        
+      </div>
+      </center>
+        <br>
+        <br>
+      {% endfor %} -->
+     
+      
+      
+          
+     
+        
+    </div>
+  </section>
+  <!-- End Book A Table Section -->
+  
+
+{% endblock content %}
