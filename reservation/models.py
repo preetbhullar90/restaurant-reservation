@@ -1,8 +1,6 @@
 from django.db import models
 from django.contrib.auth.models import User
 
-
-
 time_choices = (
     ("07:00", "07:00"),
     ("08:00", "08:00"),
@@ -20,8 +18,6 @@ time_choices = (
     ("20:00", "20:00"),
     ("21:00", "21:00"),
     )
-
-
 
 
 class Customer(models.Model):
@@ -51,13 +47,12 @@ class Table(models.Model):
 
 class Reservation(models.Model):
 
-
     """ Model for Reservation """
 
     STATUS = (("pending", "pending"),
-                      ("confirmed", "confirmed"),
-                      ("rejected", "rejected"),
-                      ("expired", "expired"))
+              ("confirmed", "confirmed"),
+              ("rejected", "rejected"),
+              ("expired", "expired"))
 
     user = models.ForeignKey(User, null=True, on_delete=models.CASCADE)
     customer = models.ForeignKey(Customer, on_delete=models.CASCADE, related_name="customer", null=True)

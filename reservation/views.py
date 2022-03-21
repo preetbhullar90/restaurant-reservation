@@ -1,7 +1,6 @@
 from email import message
 from django.shortcuts import render, redirect
 from django.http import  HttpResponse,HttpResponseRedirect
-import reservation
 from .models import *
 from .forms import ReservationForm, CustomerForm
 from datetime import datetime
@@ -11,11 +10,68 @@ from django.contrib.auth import authenticate
 from .models import Table, Customer, Reservation
 from django.conf import settings
 from django.views import View
-#from django.contrib.auth.decorators import login_required
+from django.contrib.auth.decorators import login_required
 #from .decorators import allowed_users
 #from django.contrib.auth.models import Group
-#from django.contrib.auth.forms import UserCreationForm
-#from django.contrib.auth import authenticate, login, logout
+from django.contrib.auth.forms import UserCreationForm
+from django.contrib.auth import authenticate, login, logout
+
+
+
+def registerPage(request):
+
+    """ Registration form for user """
+
+    form = CreateUserForm()
+
+    if request.method == 'POST':
+        form = CreateUserForm(request.POST)
+        if form.is_valid():
+            form.save()
+            username = form.cleaned_data['username']
+            password = form.cleaned_data['password1']
+            user = authenticate(username=username, password=password)
+            if user is not None:
+                login(request, user)
+
+            messages.success(request, 'Account has been created ')
+
+            return redirect('/')
+
+    context = {
+        'form' : form,
+    }
+    return render(request, 'Reservation/register.html', context)
+
+
+#@unauthenticated_user
+def loginPage(request):
+
+    """ Login function for user  """
+
+    if request.method == 'POST':
+        username = request.POST['username']
+        password = request.POST['password']
+
+        user = authenticate(request, username=username, password=password)
+        if user is not None:
+            login(request, user)
+            return redirect('/')
+        else:
+            messages.info(request, 'Username OR password incorrect')
+
+    context = {}
+    return render(request, 'Reservation/login.html', context)
+
+
+
+
+def logoutUser(request):
+
+    """" Logout function for users """
+
+    logout(request)
+    return redirect('/')
 
 
 def check_availabilty(customer_requested_time, customer_requested_date):
@@ -63,8 +119,7 @@ def create_order(request, User=User, *args, **kwargs):
             customer_name = request.POST.get('name')
 
             # Convert date in to format required by django
-            date_formatted = datetime.strptime(
-            customer_requested_date,'%Y-%m-%d')
+            date_formatted = datetime.strptime(customer_requested_date,'%Y-%m-%d')
 
 
             # Check to see how many bookings exist at that time/date
@@ -119,12 +174,13 @@ def reserve_table(request):
 
     orders = request.user.reservation_set.all().order_by('-id')
     if len(orders) == 0:
-            # if no reservations
-            messages.add_message(
-                            request, messages.WARNING,
-                            f"Sorry, you don't have a any reserved table, please reserve here.")
 
-            return HttpResponseRedirect('/reserve_table/create_order/')
+        # if no reservations
+        messages.add_message(
+                        request, messages.WARNING,
+                        f"Sorry, you don't have a any reserved table, please reserve here.")
+
+        return HttpResponseRedirect('/reserve_table/create_order/')
     else:
         customers = Customer.objects.all()
         today = datetime.now().date()
@@ -133,8 +189,8 @@ def reserve_table(request):
                 reservation.status = 'expired'
 
         context = {
-            'orders' : orders,
-            'customers' : customers,
+            'orders': orders,
+            'customers': customers,
         }
 
         return render(request, 'Reservation/reservation.html', context)
