@@ -23,7 +23,7 @@
           <br>
       {% endfor %}  
 
-
+<!-- 
         <table class="table border-dark mt-4" style="background-color: #cda45e;">
           
             <tr class="text-white">
@@ -78,34 +78,74 @@
           
         </table>
         
-      </div>
+      </div> -->
 
       
      
-      <!-- <form action="" method="POST" role="form">
-       {% csrf_token %}
-       {{form}}
-         <input type="submit" name="submit">
-       
-     </form>  -->
       
-      <!-- {% for messagess in messages %}
-      <center>
-        <div class="alert alert-success" role="alert" id="msg">
-          <h4 class="alert-heading">Thank you!</h4>
-        <h5>Your table booking done successfully and we will respond shortly...</h5>
-        
-      </div>
-      </center>
-        <br>
-        <br>
-      {% endfor %} -->
-     
       
       
           
      
         
+
+
+
+
+
+      <div class="bg-dark">
+    
+        <div class="row d-flex justify-content-center mb-5">
+            <div class="col-sm-12">
+                <div class="row d-flex justify-content-center">
+                    <!-- Each reservation -->
+                    {% for reservation in pp %}
+                    <div class="col-md-6 col-lg-4 m-5">
+                        <div class=" text-center ">
+                            <h4>
+                                <h4>Reservation ID: {{ reservation.id }} </h4>
+                            </h4>
+                            <!-- To display '1 person' instead of '1 people' -->
+                            {% if reservation.persons == 1 %}
+                            <h4>Guests: {{ reservation.persons }} person </h4>
+                            {% else %}
+                            <h4>Guests: {{ reservation.persons }} people </h4>
+                            {% endif %}
+                            <h4>Time: {{ reservation.time }} </h4>
+                            <h4 class=" mb-4">Date: <span>{{ reservation.date|date:"d/m/Y"}}</span>
+                            </h4>
+                            
+                                <div class="text-center">
+                                    <a href="{% url 'reservation:update_order' reservation.id%}"
+                                        class="button submit-button inline-btn bg-success text-white p-2 rounded-pill m-2">Edit Booking</a>
+                                    <a href="{% url 'reservation:delete_order' reservation.id%}"
+                                        class="button cancel-button inline-btn bg-danger text-white p-2 rounded-pill">Cancel Booking</a>
+    
+                                      </div>
+                                      <div class="text-center mt-5">
+                                      <a href="{% url 'reservation:reserve_table' %}"
+                                      class="button cancel-button inline-btn bg-info text-white p-2 rounded-pill m-2">Go Back</a>
+                                      <a href="{% url 'reservation:create_order' %}"
+                                      class="button cancel-button inline-btn bg-info text-white p-2 rounded-pill">New Booking</a>
+                                      </div>
+                                <hr>
+                                </li>
+                              </div>
+                    </div>
+                    <!-- Show two per row -->
+                    {% if forloop.counter|divisibleby:2 %}
+                </div>
+                <div class="row d-flex justify-content-center">
+                    {% endif %}
+                    {% endfor %}
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+
+
     </div>
   </section>
   <!-- End Book A Table Section -->
