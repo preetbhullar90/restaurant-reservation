@@ -206,4 +206,22 @@ def customer_table(request, pk):
         }
     return render(request, 'Reservation/view_reservation.html', context)
 
+@login_required(login_url='/reserve_table/login')
+def update_order(request, pk):
 
+    """ funtion for update booking """
+
+    order = Reservation.objects.get(id=pk)
+    form = ReservationForm(instance=order)
+    if request.method == 'POST':
+        form = ReservationForm(request.POST, instance=order)
+        if form.is_valid():
+            form.save()
+            messages.add_message(request, messages.SUCCESS, f'Thnx, your booking successfully updated.')
+
+            return HttpResponseRedirect('/reserve_table/')
+
+    context = {
+        'form' : form,
+    }
+    return render(request, 'Reservation/update_reservation.html', context)
