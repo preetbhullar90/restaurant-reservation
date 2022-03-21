@@ -43,7 +43,7 @@ def get_tables_info():
 
 
 
-@login_required(login_url='/reserve_table/login')
+#@login_required(login_url='/reserve_table/login')
 #@allowed_users(allowed_roles=['customer'])
 def create_order(request, User=User, *args, **kwargs):
 
@@ -113,3 +113,27 @@ def create_order(request, User=User, *args, **kwargs):
                     'form': form})
 
 
+
+#@login_required(login_url='/reserve_table/login')
+def reserve_table(request):
+    orders = request.user.reservation_set.all().order_by('-id')
+    if len(orders) == 0:
+            # if no reservations
+            messages.add_message(
+                            request, messages.WARNING,
+                            f"Sorry, you don't have a any reserved table, please reserve here.")
+
+            return HttpResponseRedirect('/reserve_table/create_order/')
+    else:
+        customers = Customer.objects.all()
+        today = datetime.now().date()
+        for reservation in orders:
+            if reservation.date < today:
+                reservation.status = 'expired'
+
+        context = {
+            'orders' : orders,
+            'customers' : customers,
+        }
+
+        return render(request, 'Reservation/reservation.html', context)
