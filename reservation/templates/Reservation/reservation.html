@@ -1,0 +1,168 @@
+{% extends 'base.html' %} {% load static %} {% block content %}
+
+<!-- ======= Book A Table Section ======= -->
+<section id="book-a-table" class="book-a-table">
+  <div class="container" data-aos="fade-up">
+    <div class="section-title">
+      <h2>Reservation</h2>
+      <p>Your Booking</p>
+
+
+      <div class="input-group justify-content-center mb-4">
+        {% for message in messages  %}
+        <div class="alert alert-success" id="msg">
+          <strong>{{ message }}</strong>
+      </div>
+      {% endfor %}
+      </div>
+
+
+
+
+      {% if user.is_authenticated %}
+
+      <table class=" table mt-4 table-borderless" style="background-color: #cda45e;">
+        <tr class="text-white">
+          <th scope="col">Id</th>
+          <th scope="col">Guests</th>
+
+          <th scope="col">Time</th>
+          <th scope="col">Date</th>
+          <th scope="col">Reservation Status</th>
+          <th scope="col">View</th>
+          <th scope="col">Update</th>
+          <th scope="col">Delete</th>
+          <th scope="col">Book new table</th>
+        </tr>
+          {% for reserve in orders %}
+        <tr class=" text-white bg-dark">
+          <th scope="row">{{reserve.id}}</th>
+
+          <td>{{reserve.persons}}</td>
+
+          <td>{{reserve.time}}</td>
+          <td>{{ reserve.date|date:"d/m/Y"}}</td>
+
+          {% if reserve.status == 'rejected' %}
+          <td>{{ reserve.status }}</td>
+          <td>
+            <div class="input-group-append">
+              <a class="btn btn-info " href="{% url 'reservation:delete_order' reserve.id%}">
+                  <span class="text-white h-100">
+                    <i class="fa fa-eye"></i></span> View </a>
+                </div>
+          </td>
+
+          <td>
+            <div class="input-group-append">
+              <a class="btn btn-success " href="{% url 'reservation:delete_order' reserve.id%}">
+                  <span class="text-white h-100">
+                    <i class="fa fa-pen"></i></span> Edit </a>
+                </div>
+          </td>
+          <td>
+            <div class="input-group-append">
+              <a class="btn btn-danger " href="{% url 'reservation:delete_order' reserve.id%}">
+                  <span class="text-white h-100 btn-outline-danger ">
+                    <i class="fa fa-trash x-5"></i></span> Cancel </a>
+                </div>
+          </td>
+          <td>
+            <a class="btn btn-secondary" href="{% url 'reservation:create_order' %}"
+            >Book new table</a
+            >
+          </td>
+          <!-- If reservation has been rejected -->
+          {% elif reserve.status == 'expired' %}
+         <td>{{ reserve.status }}</td>
+
+         <td>
+          <div class="input-group-append">
+            <a class="btn btn-secondary disabled " href="{% url 'reservation:delete_order' reserve.id%}">
+                <span class="text-white h-100">
+                  <i class="fa fa-eye"></i></span> View </a>
+              </div>
+        </td>
+
+        <td>
+          <div class="input-group-append">
+            <a class="btn btn-secondary disabled " href="{% url 'reservation:delete_order' reserve.id%}">
+                <span class="text-white h-100">
+                  <i class="fa fa-pen"></i></span> Edit </a>
+              </div>
+        </td>
+        <td>
+
+          <div class="input-group-append">
+          <a class="btn btn-danger " href="{% url 'reservation:delete_order' reserve.id%}">
+              <span class="text-white h-100 btn-outline-danger ">
+                <i class="fa fa-trash x-5"></i></span> Cancel </a>
+            </div>
+        </td>
+        <td>
+          <div class="input-group-append"></div>
+          <a class="btn btn-secondary disabled" href="{% url 'reservation:create_order' %}">
+            <span class="text-white h-100">
+              <i class="fa fa-solid fa-utensils"></i></span> New </a>
+        </div>
+        </td>
+          <!-- For 'pending' or 'confirmed' -->
+          {% else %}
+
+          <td>{{reserve.status}}</td>
+
+          <td>
+            <div class="input-group-append">
+              <a class="btn btn-primary text-white" href="{% url 'reservation:customer_table' reserve.id%}">
+                  <span class="text-white h-100">
+                    <i class="fa fa-eye"></i></span> View </a>
+                </div>
+          </td>
+
+          <td>
+            <div class="input-group-append">
+              <a class="btn btn-success " href="{% url 'reservation:update_order' reserve.id%}">
+                  <span class="text-white h-100">
+                    <i class="fa fa-pen"></i></span> Edit </a>
+                </div>
+          </td>
+          <td>
+            <div class="input-group-append">
+              <a class="btn btn-danger " href="{% url 'reservation:delete_order' reserve.id%}">
+                  <span class="text-white h-100">
+                    <i class="fa fa-trash x-5"></i></span> Cancel </a>
+                </div>
+          </td>
+          <td>
+            <div class="input-group-append"></div>
+            <a class="btn btn-warning text-white" href="{% url 'reservation:create_order' %}">
+              <span class="text-white h-100">
+                <i class="fa fa-solid fa-utensils"></i></span> New </a>
+          </div>
+          </td>
+        </tr>
+        {% endif %}
+        {% endfor %}
+      </table>
+    </div>
+    {% else %}
+    <h3>You must be logged in</h3>
+    <a href="{% url 'reservation:login' %}">Loggin</a>
+    {% endif %}
+
+    <!-- {% for messagess in messages %}
+      <center>
+        <div class="alert alert-success" role="alert" id="msg">
+          <h4 class="alert-heading">Thank you!</h4>
+        <h5>Your table booking done successfully and we will respond shortly...</h5>
+
+      </div>
+      </center>
+        <br>
+        <br>
+      {% endfor %} -->
+  </div>
+</section>
+<!-- End Book A Table Section -->
+
+{% endblock content %}

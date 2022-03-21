@@ -1,5 +1,4 @@
 from email import message
-from multiprocessing import context
 from django.shortcuts import render, redirect
 from django.http import  HttpResponse,HttpResponseRedirect
 import reservation
@@ -46,6 +45,8 @@ def get_tables_info():
 #@login_required(login_url='/reserve_table/login')
 #@allowed_users(allowed_roles=['customer'])
 def create_order(request, User=User, *args, **kwargs):
+
+    """Create function for get Reservation form """
 
     form = ReservationForm()
     customer_form = CustomerForm()
@@ -106,8 +107,6 @@ def create_order(request, User=User, *args, **kwargs):
 
                     return HttpResponseRedirect('/reserve_table/create_order/')
 
-
-
     return render(request, 'Reservation/create_reservation.html',
                     {'customer_form': customer_form,
                     'form': form})
@@ -116,6 +115,8 @@ def create_order(request, User=User, *args, **kwargs):
 
 #@login_required(login_url='/reserve_table/login')
 def reserve_table(request):
+    """Create function for Reserve a Table """
+
     orders = request.user.reservation_set.all().order_by('-id')
     if len(orders) == 0:
             # if no reservations
