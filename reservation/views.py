@@ -2,7 +2,7 @@ from email import message
 from django.shortcuts import render, redirect
 from django.http import  HttpResponse,HttpResponseRedirect
 from .models import *
-from .forms import ReservationForm, CustomerForm
+from .forms import ReservationForm, CustomerForm, CreateUserForm
 from datetime import datetime
 from django.contrib import messages
 from django.contrib.auth.models import User
@@ -11,8 +11,6 @@ from .models import Table, Customer, Reservation
 from django.conf import settings
 from django.views import View
 from django.contrib.auth.decorators import login_required
-#from .decorators import allowed_users
-#from django.contrib.auth.models import Group
 from django.contrib.auth.forms import UserCreationForm
 from django.contrib.auth import authenticate, login, logout
 
@@ -98,7 +96,7 @@ def get_tables_info():
 
 
 
-#@login_required(login_url='/reserve_table/login')
+@login_required(login_url='/reserve_table/login')
 #@allowed_users(allowed_roles=['customer'])
 def create_order(request, User=User, *args, **kwargs):
 
@@ -168,7 +166,7 @@ def create_order(request, User=User, *args, **kwargs):
 
 
 
-#@login_required(login_url='/reserve_table/login')
+@login_required(login_url='/reserve_table/login')
 def reserve_table(request):
     """Create function for Reserve a Table """
 
@@ -194,3 +192,18 @@ def reserve_table(request):
         }
 
         return render(request, 'Reservation/reservation.html', context)
+
+
+@login_required(login_url='/reserve_table/login')
+def customer_table(request, pk):
+
+    """ Function for get customer id """
+
+    pp = Reservation.objects.filter(id=pk)
+
+    context = {
+        'pp' : pp,
+        }
+    return render(request, 'Reservation/view_reservation.html', context)
+
+
