@@ -225,3 +225,21 @@ def update_order(request, pk):
         'form' : form,
     }
     return render(request, 'Reservation/update_reservation.html', context)
+
+
+@login_required(login_url='/reserve_table/login')
+def delete_order(request, pk):
+
+    """ Create funtion for delete single booking in booking list """
+
+    order = Reservation.objects.get(id=pk)
+    if request.method == 'POST':
+        order.delete()
+        messages.add_message(
+                            request, messages.SUCCESS,
+                            f"Thanx, your booking successfully cancelled.")
+        return redirect('/reserve_table/')
+    context = {
+        'item' : order,
+    }
+    return render(request, 'Reservation/delete_reservation.html', context)
