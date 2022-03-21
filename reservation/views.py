@@ -1,22 +1,20 @@
 from email import message
-from django.shortcuts import render, redirect
-from django.http import  HttpResponse,HttpResponseRedirect
-from .models import *
-from .forms import ReservationForm, CustomerForm, CreateUserForm
 from datetime import datetime
-from django.contrib import messages
+from django.shortcuts import render, redirect
+from django.http import HttpResponseRedirect
+#from .models import *
+from django.contrib.auth import authenticate, login, logout
 from django.contrib.auth.models import User
-from django.contrib.auth import authenticate
+from django.contrib import messages
+from django.contrib.auth.decorators import login_required
+from django.contrib.auth.forms import UserCreationForm
 from .models import Table, Customer, Reservation
 from django.conf import settings
 from django.views import View
-from django.contrib.auth.decorators import login_required
-from django.contrib.auth.forms import UserCreationForm
-from django.contrib.auth import authenticate, login, logout
+from .forms import ReservationForm, CustomerForm, CreateUserForm
 
 
-
-def registerPage(request):
+def registerpage(request):
 
     """ Registration form for user """
 
@@ -37,13 +35,12 @@ def registerPage(request):
             return redirect('/')
 
     context = {
-        'form' : form,
+        'form': form,
     }
     return render(request, 'Reservation/register.html', context)
 
 
-#@unauthenticated_user
-def loginPage(request):
+def loginpage(request):
 
     """ Login function for user  """
 
@@ -62,9 +59,7 @@ def loginPage(request):
     return render(request, 'Reservation/login.html', context)
 
 
-
-
-def logoutUser(request):
+def logoutuser(request):
 
     """" Logout function for users """
 
@@ -98,7 +93,7 @@ def get_tables_info():
 
 @login_required(login_url='/reserve_table/login')
 #@allowed_users(allowed_roles=['customer'])
-def create_order(request, User=User, *args, **kwargs):
+def create_order(request, User=User):
 
     """Create function for get Reservation form """
 
@@ -117,7 +112,8 @@ def create_order(request, User=User, *args, **kwargs):
             customer_name = request.POST.get('name')
 
             # Convert date in to format required by django
-            date_formatted = datetime.strptime(customer_requested_date,'%Y-%m-%d')
+            date_formatted = datetime.strptime(
+                customer_requested_date, "%Y-%m-%d")
 
 
             # Check to see how many bookings exist at that time/date
@@ -145,20 +141,20 @@ def create_order(request, User=User, *args, **kwargs):
 
             else:
 
-                    venue = form.save(commit=False)
-                    venue.user= request.user
-                    venue.save()
-                    customer_form.save()
-                    messages.add_message(
-                            request, messages.SUCCESS,
-                            f"Thank you {customer_name}, your enquiry for "
-                            f"{customer_requested_guests} people at "
-                            f"{customer_requested_time} on "
-                            f"{customer_requested_date} has been sent.")
+                venue = form.save(commit=False)
+                venue.user = request.user
+                venue.save()
+                customer_form.save()
+                messages.add_message(
+                        request, messages.SUCCESS,
+                        f"Thank you {customer_name}, your enquiry for "
+                        f"{customer_requested_guests} people at "
+                        f"{customer_requested_time} on "
+                        f"{customer_requested_date} has been sent.")
 
-                    # Return blank forms so the same enquiry isn't sent twice.
+                # Return blank forms so the same enquiry isn't sent twice.
 
-                    return HttpResponseRedirect('/reserve_table/create_order/')
+                return HttpResponseRedirect('/reserve_table/create_order/')
 
     return render(request, 'Reservation/create_reservation.html',
                     {'customer_form': customer_form,

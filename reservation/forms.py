@@ -5,6 +5,7 @@ from django.contrib.auth.models import User
 from django.conf import settings
 
 
+
 class CustomerForm(forms.ModelForm):
 
     """" Form for customer Phone Number placeholder """
@@ -24,7 +25,7 @@ class ReservationForm(forms.ModelForm):
 
     """" Form for Reservation Date placeholder """
 
-    date = forms.DateField(widget=forms.TextInput(attrs={'placeholder': ('2022-03-23')}))
+    date = forms.DateField(widget=forms.TextInput(attrs={'placeholder': ('2022-05-23')}))
 
     class Meta:
 

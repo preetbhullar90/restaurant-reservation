@@ -1,12 +1,6 @@
 {% extends 'base.html' %}
 {% load static %}
 {% block content %}
-{% load bootstrap5 %} 
- 
-
-
-
-
 
 
 <section id="book-a-table" class="book-a-table">
@@ -14,38 +8,28 @@
     <div class="section-title">
       <h2>Reservation</h2>
       <p>Register Account</p>
-    </div> 
+    </div>
     {% if form.errors %}
     {% for field in form %}
-        {% for error in field.errors %} 
+        {% for error in field.errors %}
            <div class="text-danger" style="background-color: #0c0b09;">
                 <strong>{{ error }}</strong>
            </div>
         {% endfor %}
     {% endfor %}
  {% endif %}
-    
 
 
-
-
-
-    
-    
-    
-    
     <div class="container h-100  mt-5 mb-5">
 
         <div class="input-group justify-content-center mt-4">
             <div class="section-title">
               <p>Register</p>
             </div>
-        
           </div>
 
         <form action="" method="POST" role="form" >
             {% csrf_token %}
-           
 
     <div class="input-group mb-4 justify-content-center">
         <div class="input-group-append">
@@ -62,11 +46,9 @@
         </div>
         {{form.first_name}}
         </div>
-    
         <div class="input-group mb-4 justify-content-center">
             <div class="input-group-append">
                 <span class="input-group-text h-100 text-warning bg-dark btn-outline-secondary"><i class="fa fa-user pt-1 pb-1 "></i></span>
-    
             </div>
             {{form.last_name}}
             </div>
@@ -74,35 +56,28 @@
             <div class="input-group mb-4 justify-content-center">
                 <div class="input-group-append">
                     <span class="input-group-text h-100 text-warning bg-dark btn-outline-secondary"><i class="fa fa-envelope pt-1 pb-1 "></i></span>
-        
                 </div>
                 {{form.email}}
                 </div>
-                
                 <div class="input-group mb-4 justify-content-center">
                     <div class="input-group-append">
                         <span class="input-group-text h-100 text-warning bg-dark btn-outline-secondary"><i class="fa fa-key pt-1 pb-1 "></i></span>
-            
                     </div>
                     {{form.password1}}
-                    
-                    </div>   
-                    
+                    </div>
+
                     <div class="input-group mb-4 justify-content-center">
                         <div class="input-group-append">
                             <span class="input-group-text h-100 text-warning bg-dark btn-outline-secondary"><i class="fa fa-key pt-1 pb-1"></i></span>
-                
                         </div>
                         {{form.password2}}
-                        </div>                
-    
+                        </div>
+
                         <div class="input-group mb-4 justify-content-center">
                             <div class="input-group-append">
                                 <input type="submit" class="btn-lg btn btn-warning rounded-pill text-white" value="Sign up" />
-                                
-    
+
                             </div>
-                            
                         </div>
                         <div class="input-group mb-4 justify-content-center">
                         <p>Already have an account? Then please <a href="{% url 'reservation:login' %}"><span class=" text-primary">sign in</span></a>.</p>
@@ -112,18 +87,6 @@
     </div>
 
 
-
-
-
-
-
- 
 </div>
-</<section>
-
-
-     
-      
-      
-      
+</section>
 {% endblock content %}

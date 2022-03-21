@@ -298,7 +298,7 @@ let form_field3 = document.getElementById('id_last_name');
 let form_field4 = document.getElementById('id_email');
 let form_field5 = document.getElementById('id_password1');
 let form_field6 = document.getElementById('id_password2');
-let form_field7 = document.getElementById('id_name');
+
 
 
 form_field1.placeholder='Username..', form_field1.className += 'form-control text-white shadow-none'; 
@@ -326,9 +326,7 @@ form_field6.style.borderColor='#625b4b',
 form_field6.style.backgroundColor='#0c0b09';
 
 
-form_field7.placeholder='Confirm..', form_field7.className += 'form-control text-white shadow-none';
-form_field7.style.borderColor='#625b4b',
-form_field7.style.backgroundColor='#0c0b09';
+
 
 
 
