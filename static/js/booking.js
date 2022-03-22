@@ -31,3 +31,4 @@ reserve_form5.style.backgroundColor='#0c0b09';
 reserve_form6.placeholder='time..', reserve_form6.className += 'form-control text-white shadow-none'; 
 reserve_form6.style.borderColor='#625b4b',
 reserve_form6.style.backgroundColor='#0c0b09';
+

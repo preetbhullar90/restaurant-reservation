@@ -112,9 +112,9 @@
                             <h4>Guests: {{ reservation.persons }} people </h4>
                             {% endif %}
                             <h4>Time: {{ reservation.time }} </h4>
-                            <h4 class=" mb-4">Date: <span>{{ reservation.date|date:"d/m/Y"}}</span>
+                            <h4 class=" mb-4">Date: <span>{{ reservation.date|date:"m/d/Y"}}</span>
                             </h4>
-                            
+
                                 <div class="text-center">
                                     <a href="{% url 'reservation:update_order' reservation.id%}"
                                         class="button submit-button inline-btn bg-success text-white p-2 rounded-pill m-2">Edit Booking</a>

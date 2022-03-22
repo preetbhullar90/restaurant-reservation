@@ -60,7 +60,7 @@ class Reservation(models.Model):
     guests_choices = ((1, "1 person"), (2, "2 people"),
                       (3, "3 people"), (4, "4 people"))
     persons = models.IntegerField(choices=guests_choices, default=1)
-    date = models.DateField(default='2022-01-28')
+    date = models.DateField()
     time = models.CharField(max_length=10, choices=time_choices, default='12:00')
     status = models.CharField(max_length=200, null=True, choices=STATUS, default='pending')
 

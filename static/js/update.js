@@ -17,3 +17,6 @@ update_reservation2.style.backgroundColor='#0c0b09';
 update_reservation3.placeholder='2022-05-28', update_reservation3.className += 'form-control text-white shadow-none'; 
 update_reservation3.style.borderColor='#625b4b',
 update_reservation3.style.backgroundColor='#0c0b09';
+
+
+

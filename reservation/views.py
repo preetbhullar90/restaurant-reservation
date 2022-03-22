@@ -1,5 +1,4 @@
-from email import message
-from datetime import datetime
+import datetime
 from django.shortcuts import render, redirect
 from django.http import HttpResponseRedirect
 #from .models import *
@@ -8,9 +7,9 @@ from django.contrib.auth.models import User
 from django.contrib import messages
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth.forms import UserCreationForm
-from .models import Table, Customer, Reservation
 from django.conf import settings
 from django.views import View
+from .models import Table, Customer, Reservation
 from .forms import ReservationForm, CustomerForm, CreateUserForm
 
 
@@ -111,10 +110,8 @@ def create_order(request, User=User):
             customer_requested_guests = request.POST.get('persons')
             customer_name = request.POST.get('name')
 
-            # Convert date in to format required by django
-            date_formatted = datetime.strptime(
-                customer_requested_date, "%Y-%m-%d")
-
+            date_formatted = datetime.datetime.strptime(
+                customer_requested_date, "%m/%d/%Y")
 
             # Check to see how many bookings exist at that time/date
             tables_booked = check_availabilty(
@@ -177,7 +174,7 @@ def reserve_table(request):
         return HttpResponseRedirect('/reserve_table/create_order/')
     else:
         customers = Customer.objects.all()
-        today = datetime.now().date()
+        today = datetime.datetime.now().date()
         for reservation in orders:
             if reservation.date < today:
                 reservation.status = 'expired'
