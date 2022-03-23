@@ -19,10 +19,13 @@ def send_email(request):
             message = form.cleaned_data['message']
             recipient_list = [settings.EMAIL_HOST_USER]
             send_mail(
+
+
                 'From: ' + name,
                 'Message: ' + message,
                 'To' + email,
                 recipient_list,
+
                 )
             messages.add_message(request, messages.SUCCESS, f" {name} ")
 
