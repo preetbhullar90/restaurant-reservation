@@ -29,16 +29,16 @@
       {% endfor %} -->
 
     <form
-      action="{% url 'reservation:delete_order' item.id %}"
+      action="{% url 'reservation:delete_reservations' item.id %}"
       method="POST"
       role="form">
       
       {% csrf_token %}
       <a class="btn btn-warning" href="{% url 'reservation:reserve_table' %}">
-        Cancel
+        Go Back
       </a>
 
-      <input class="btn btn-danger" type="submit" value="Delete" />
+      <input class="btn btn-danger" type="submit" value="Cancel" />
     </form>
   </div>
 </section>

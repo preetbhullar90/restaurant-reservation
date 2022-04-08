@@ -1,14 +1,10 @@
+""" Import Django contrib, models and forms """
 import datetime
 from django.shortcuts import render, redirect
 from django.http import HttpResponseRedirect
-#from .models import *
 from django.contrib.auth import authenticate, login, logout
-from django.contrib.auth.models import User
 from django.contrib import messages
 from django.contrib.auth.decorators import login_required
-from django.contrib.auth.forms import UserCreationForm
-from django.conf import settings
-from django.views import View
 from .models import Table, Customer, Reservation
 from .forms import ReservationForm, CustomerForm, CreateUserForm
 
@@ -77,22 +73,15 @@ def check_availabilty(customer_requested_time, customer_requested_date):
     # Return number of tables
     return no_tables_booked
 
+
 def get_tables_info():
     """ Retrieves the number of tables in the table model """
     max_tables = len(Table.objects.all())
-
     return max_tables
 
 
-
-
-
-
-
-
 @login_required(login_url='/reserve_table/login')
-#@allowed_users(allowed_roles=['customer'])
-def create_order(request, User=User):
+def create_order(request):
 
     """Create function for get Reservation form """
 
@@ -122,19 +111,17 @@ def create_order(request, User=User):
 
             # Compare number of bookings to number of tables available
             if tables_booked >= max_tables:
-                """ If the number of tables is bigger than or equal to the
-                max number of tables in the restaurant stop form being
-                submitted
-                """
+                # If the number of tables is bigger than or equal to the
+                # max number of tables in the restaurant stop form being
+                # submitted
+
                 messages.add_message(
                     request, messages.ERROR,
                     "Unfortunately we are fully booked at "
                     f"{customer_requested_time} on {customer_requested_date}.")
-
-                #return HttpResponseRedirect('/reserve_table/create_order/')
-                return render(request, 'Reservation/create_reservation.html',
-                                {'customer_form': customer_form,
-                                 'form': form})
+                return render(request, 'Reservation/create_reservation.html', {
+                              'customer_form': customer_form,
+                                       'form': form})
 
             else:
 
@@ -153,10 +140,8 @@ def create_order(request, User=User):
 
                 return HttpResponseRedirect('/reserve_table/create_order/')
 
-    return render(request, 'Reservation/create_reservation.html',
-                    {'customer_form': customer_form,
-                    'form': form})
-
+    return render(request, 'Reservation/create_reservation.html', {
+                  'customer_form': customer_form, 'form': form})
 
 
 @login_required(login_url='/reserve_table/login')
@@ -167,9 +152,9 @@ def reserve_table(request):
     if len(orders) == 0:
 
         # if no reservations
-        messages.add_message(
-                        request, messages.WARNING,
-                        f"Sorry, you don't have a any reserved table, please reserve here.")
+        messages.add_message(request, messages.WARNING,
+                             "Sorry, you don't have a any reserved table,"
+                             "please reserve here.")
 
         return HttpResponseRedirect('/reserve_table/create_order/')
     else:
@@ -192,15 +177,16 @@ def customer_table(request, pk):
 
     """ Function for get customer id """
 
-    pp = Reservation.objects.filter(id=pk)
+    view_booking = Reservation.objects.filter(id=pk)
 
     context = {
-        'pp' : pp,
+        'view_booking': view_booking,
         }
     return render(request, 'Reservation/view_reservation.html', context)
 
+
 @login_required(login_url='/reserve_table/login')
-def update_order(request, pk):
+def update_reservations(request, pk):
 
     """ funtion for update booking """
 
@@ -209,19 +195,23 @@ def update_order(request, pk):
     if request.method == 'POST':
         form = ReservationForm(request.POST, instance=order)
         if form.is_valid():
+            order.status = 'pending'
+            order.table = None
+            order.customer = None
             form.save()
-            messages.add_message(request, messages.SUCCESS, f'Thnx, your booking successfully updated.')
+            messages.add_message(request, messages.SUCCESS, "Thnx, your"
+                                 " booking successfully updated.")
 
             return HttpResponseRedirect('/reserve_table/')
 
     context = {
-        'form' : form,
+        'form': form,
     }
     return render(request, 'Reservation/update_reservation.html', context)
 
 
 @login_required(login_url='/reserve_table/login')
-def delete_order(request, pk):
+def delete_reservations(request, pk):
 
     """ Create funtion for delete single booking in booking list """
 
@@ -230,9 +220,9 @@ def delete_order(request, pk):
         order.delete()
         messages.add_message(
                             request, messages.SUCCESS,
-                            f"Thanx, your booking successfully cancelled.")
+                            "Thanx, your booking successfully cancelled.")
         return redirect('/reserve_table/')
     context = {
-        'item' : order,
+        'item': order,
     }
     return render(request, 'Reservation/delete_reservation.html', context)

@@ -1,14 +1,8 @@
+""" Import module from django """
 from django import forms
 from django.contrib.auth.models import User
 from django.contrib.auth.forms import UserCreationForm
-from django.conf import settings
 from .models import Reservation, Customer
-
-# class DateInput(forms.DateInput):
-#      input_type = 'date'
-
-
-
 
 
 class CustomerForm(forms.ModelForm):
@@ -16,7 +10,8 @@ class CustomerForm(forms.ModelForm):
     """" Form for customer Phone Number placeholder """
 
     phone = forms.CharField(widget=forms.TextInput(
-                            attrs={'placeholder': ('Please enter in +44 format')}))
+                            attrs={'placeholder': ('Please'
+                                   'enter in +44 format')}))
 
     class Meta:
 
@@ -30,9 +25,7 @@ class ReservationForm(forms.ModelForm):
 
     """" Form for Reservation Date placeholder """
 
-    #date = forms.DateField(widget=DateInput)
     date = forms.DateField()
-
 
     class Meta:
 
@@ -40,8 +33,6 @@ class ReservationForm(forms.ModelForm):
 
         model = Reservation
         fields = ['persons', 'time', 'date']
-
-
 
 
 class CreateUserForm(UserCreationForm):
@@ -57,4 +48,5 @@ class CreateUserForm(UserCreationForm):
         """ Add meta class for Register form  """
 
         model = User
-        fields = ['username', 'first_name', 'last_name', 'email', 'password1', 'password2']
+        fields = ['username', 'first_name', 'last_name',
+                  'email', 'password1', 'password2']
