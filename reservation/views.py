@@ -62,7 +62,7 @@ def logoutuser(request):
     return redirect('/')
 
 
-def check_availabilty(customer_requested_time, customer_requested_date):
+def check_table_availabilty(customer_requested_time, customer_requested_date):
     """ check availability against Reservation model using customer input """
 
     # Check to see how many bookings exist at that time/date
@@ -74,7 +74,7 @@ def check_availabilty(customer_requested_time, customer_requested_date):
     return no_tables_booked
 
 
-def get_tables_info():
+def check_table_in_restaurant():
     """ Retrieves the number of tables in the table model """
     max_tables = len(Table.objects.all())
     return max_tables
@@ -100,14 +100,14 @@ def create_order(request):
             customer_name = request.POST.get('name')
 
             date_formatted = datetime.datetime.strptime(
-                customer_requested_date, "%m/%d/%Y")
+                customer_requested_date, "%d/%m/%Y")
 
             # Check to see how many bookings exist at that time/date
-            tables_booked = check_availabilty(
+            tables_booked = check_table_availabilty(
                 customer_requested_time, date_formatted)
 
             # Get the number of tables in the restaurant
-            max_tables = get_tables_info()
+            max_tables = check_table_in_restaurant()
 
             # Compare number of bookings to number of tables available
             if tables_booked >= max_tables:
