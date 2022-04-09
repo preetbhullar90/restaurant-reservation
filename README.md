@@ -1,8 +1,8 @@
 # Mochi Restaurant
 
-![Mochi Restaurant Images](assets/test-file/hangman-responsive.PNG)
+![Mochi Restaurant Images](assets/testing-file/am-i-responsive1.PNG)
 
-[View the live project here](https://hangman-games.herokuapp.com/)
+[View the live project here](https://mochi-restaurant.herokuapp.com)
 
 ## Contents
 1. [Introduction](#Introduction)
