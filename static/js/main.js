@@ -301,7 +301,7 @@ let form_field6 = document.getElementById('id_password2');
 
 
 
-form_field1.placeholder='Username..', form_field1.className += 'form-control text-white shadow-none'; 
+form_field1.placeholder='Username..', form_field1.className += 'form-control text-white shadow-none';
 form_field1.style.borderColor='#625b4b',
 form_field1.style.backgroundColor='#0c0b09';
 
