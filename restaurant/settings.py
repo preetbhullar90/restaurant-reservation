@@ -29,8 +29,8 @@ SECRET_KEY = os.environ.get('SECRET_KEY')
 
 
 # SECURITY WARNING: don't run with debug turned on in production!
-# DEBUG = os.environ.get('DEVELOPMENT')
-DEBUG = False
+DEBUG = os.environ.get('DEVELOPMENT')
+
 
 # X_FRAME_OPTIONS = 'SAMEORIGIN'
 
@@ -90,8 +90,7 @@ WSGI_APPLICATION = 'restaurant.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/3.2/ref/settings/#databases
 
-if os.environ.get("DEVELOPMENT") == "True":
-# if 'DATABASE_URL' in os.environ:
+if 'DATABASE_URL' in os.environ:
     DATABASES = {
         'default': dj_database_url.parse(os.environ.get('DATABASE_URL'))
 
