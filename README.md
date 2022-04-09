@@ -42,3 +42,41 @@
 ## Introduction
 
 This is my 4th project at code institute.This is restaurant website designed to display to the customers and allow them to make a booking and edit,view and delete the booking.In this website customers need to login or register on the website for booking, otherwise they can't see any booking and the website will take them on login page.This website deployed on heroku.
+
+## User Experience
+
+### Ideal User Demographic
+* New users.
+* Current users.
+
+### User Stories
+
+#### New users :
+
+* For new/potential user, I have included all the information about the restaurant on one page.
+* As a admin user, I can login website to the access the site's backend.
+* As a admin user, I can update,delete and accept or reject the reservation.
+* As a new/potential user, I can login or register on website to view or edit my bookings.
+* As a new/potential user, I can see Breakfat,Lunch and Dinner menu seprately.
+
+
+#### Current Users :
+- As a current user, I can login my account.
+- As a current user, I can Edit,View and Cancel my bookings.
+- As a current user, I can check my previous booking status.
+- As a current user, I can contact to the restaurant regarding my current booking information.
+- As a current user, I can see all the new updates about the menu.
+
+## Target
+
+- On the website home page I have added a big background image about the food serving in the resturant, This image push people to come in the restaurant.
+- On the website home page I have added a video clip about the restautant service and food, so that people can see everything about the restaurant before book a table.
+
+#### Structure
+In this website i used five apps:
+
+1. Aboutus - restaurant history, chefs
+2. Menu - menu display
+3. Reservation - reservations enquiries & customer management
+4. Home - Information of all the pages
+5. Contact - users feedback
