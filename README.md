@@ -80,3 +80,24 @@ In this website i used five apps:
 3. Reservation - reservations enquiries & customer management
 4. Home - Information of all the pages
 5. Contact - users feedback
+
+### Databases
+
+The menu, aboutus and reservation apps require databases to store information so I have built 8 custom models. 
+
+#### Menu
+In the menu app i created two models names Meals & Category, these are two models that provide all the information required to display the items as part of the restaurant's menu. Each item has a name, description, price and for how many people. 
+
+#### Reservation
+There are 3 models in reservation app, Customer, Table & Reservation.These 3 models allow for customer details to be stored, reservation enquiries to be made & managed & also enable availability checks whilst the user is enquiring. 
+
+For each reservation, there will be a customer & table assigned to it. The customer is assigned during the enquiry process and the tables are manage in the backend by the admin user. This model only works if user is login or registerd. Logged in users will have their details with the user email address as this is how they are located in the customer model.
+
+The tables model is used for checking the availablity of the tables in the resturant. This process used by backend admin user, Admin user checks if there is avaiable table in the restaurant then he accept user table request according to the avaliabilty.
+
+#### Aboutus
+There are 3 models in aboutus app, AboutUs, Why_Choose_Us and Chef. AboutUs model is used for display the history of the restaurant with image.Why_Choose_Us model is created for show the 3 blocks, One is to read about out staff, Second is to about fresh food and the last one is read about our food quality.Chef model is used for show the information about our chef with chef image, name and social accounts.
+
+The type of site structure I have chosen for my website is a hierarchical structure which is demonstrated in the image below. The information architecture was arranged like this to ensure a user friendly experience as well as smooth navigation between the pages.
+
+           # Image here
