@@ -1757,4 +1757,34 @@ section {
 }
 
 
+/*--------------------------------------------------------------
+# style date calender
+--------------------------------------------------------------*/
+.ui-datepicker {
+  margin: -39px auto 0;
+}
+.ui-datepicker {
+  background-color: #3a3838 !important;
+ }
 
+.ui-widget-header {
+background: #a58808;
+color: #fff;
+}
+
+.ui-widget-content .ui-state-default:hover{
+background: #0b63e7;
+border-radius: 2px;
+}
+
+.ui-datepicker thead {
+    background-color: #3a3838;
+    color: #fff;
+
+    /*border-bottom: 1px solid #bbb;*/
+}
+.ui-datepicker-unselectable .ui-state-default {
+    background: #3a3838;
+    color: #000;
+
+}

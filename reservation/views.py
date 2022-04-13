@@ -100,7 +100,7 @@ def create_order(request):
             customer_name = request.POST.get('name')
 
             date_formatted = datetime.datetime.strptime(
-                customer_requested_date, "%d/%m/%Y")
+                customer_requested_date, "%m/%d/%Y")
 
             # Check to see how many bookings exist at that time/date
             tables_booked = check_table_availabilty(
