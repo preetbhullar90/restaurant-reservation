@@ -198,6 +198,7 @@ def update_reservations(request, pk):
             order.status = 'pending'
             order.table = None
             order.customer = None
+
             form.save()
             messages.add_message(request, messages.SUCCESS, "Thnx, your"
                                  " booking successfully updated.")

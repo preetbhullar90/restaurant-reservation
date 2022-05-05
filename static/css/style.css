@@ -115,11 +115,11 @@ h1, h2, h3, h4, h5, h6 {
 /*--------------------------------------------------------------
 # Disable aos animation delay on mobile devices
 --------------------------------------------------------------*/
-@media screen and (max-width: 768px) {
+/* @media screen and (max-width: 768px) {
   [data-aos-delay] {
     transition-delay: 0 !important;
   }
-}
+} */
 
 /*--------------------------------------------------------------
 # Top Bar
@@ -484,7 +484,7 @@ h1, h2, h3, h4, h5, h6 {
 
 #hero h2 {
   color: #eee;
-  margin-bottom: 10px 0 0 0;
+  /* margin-bottom: 10px 0 0 0; */
   font-size: 22px;
 }
 
@@ -549,12 +549,12 @@ h1, h2, h3, h4, h5, h6 {
   animation-delay: 0s;
   -webkit-animation: pulsate-btn 2s;
   animation: pulsate-btn 2s;
-  -webkit-animation-direction: forwards;
-  animation-direction: forwards;
+  /* -webkit-animation-direction: forwards; */
+  /* animation-direction: forwards; */
   -webkit-animation-iteration-count: infinite;
   animation-iteration-count: infinite;
-  -webkit-animation-timing-function: steps;
-  animation-timing-function: steps;
+  /* -webkit-animation-timing-function: steps;
+  animation-timing-function: steps; */
   opacity: 1;
   border-radius: 50%;
   border: 5px solid rgba(205, 164, 94, 0.7);

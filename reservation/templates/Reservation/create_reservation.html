@@ -33,7 +33,7 @@
 {% endfor %}
 </div>
 
-<form action="" method="POST" role="form" id="reservation-form">
+<form action="" method="POST" id="reservation-form">
   {% csrf_token %}
 
 <div class="input-group mb-4 justify-content-center">
@@ -82,7 +82,7 @@
 
         </div>
 
-        <div class="input-group mb-4 justify-content-center">
+        <div class="input-group mb-4 justify-content-center" id="reservation-form">
           <div class="input-group-append">
             <span class="input-group-text h-100 text-warning bg-dark btn-outline-secondary"><i class="fa fa-calendar pt-1 pb-1"></i></span>
 

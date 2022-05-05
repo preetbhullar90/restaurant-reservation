@@ -24,7 +24,7 @@ reserve_form4.placeholder='persons..', reserve_form4.className += 'form-control 
 reserve_form4.style.borderColor='#625b4b',
 reserve_form4.style.backgroundColor='#0c0b09';
 
-reserve_form5.placeholder='05/28/2022', reserve_form5.className += 'form-control text-white shadow-none';
+reserve_form5.placeholder='05/29/2022', reserve_form5.className += 'form-control text-white shadow-none';
 reserve_form5.style.borderColor='#625b4b',
 reserve_form5.style.backgroundColor='#0c0b09';
 
