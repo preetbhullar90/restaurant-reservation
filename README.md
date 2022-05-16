@@ -27,7 +27,7 @@
 
 11. [Testing](#Testing)
 
-    - [Testings.md](assets/test-file/testings.md)
+    - [Testings.md](assets/testing-file/testings.md)
 
 12. [Deployment](#Deployment)
 

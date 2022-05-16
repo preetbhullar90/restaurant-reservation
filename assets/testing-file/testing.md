@@ -44,3 +44,65 @@
    * As a current user, I can see any updates about the menu, because when restaurant updates their menu, it's visible immediately on the website.
 
 [Go Top](#Table-of-contents)
+
+## Manual File Test
+
+### Home-Page-Responsive
+* The Home page responsive on all the devices.
+
+![](/assets/testing-file/home-page-responsive.gif)
+
+ ### Home-Page
+* Full home page.
+
+![](/assets/testing-file/home-page.gif)
+
+### About-Page-Responsive
+* The About page responsive on all the devices.
+
+![](/assets/testing-file/about-page-responsive.gif)
+
+ ### About-Page
+* Full about page.
+
+![](/assets/testing-file/about-page.gif)
+
+### Menu-Page-Responsive
+* The Menu page responsive on all the devices.
+
+![](/assets/testing-file/menu-page-responsive.gif)
+
+ ### Menu-Page
+* Full menu page.
+
+![](/assets/testing-file/menu-page.gif)
+
+### Booking-Page-Responsive
+* The booking page responsive on all the devices.
+
+![](/assets/testing-file/booking-page-responsive.gif)
+
+ ### Booking-Page
+* Full booking page.
+
+![](/assets/testing-file/booking-page.gif)
+
+### Contact-Page-Responsive
+* The contact page responsive on all the devices.
+
+![](/assets/testing-file/contact-page-responsive.gif)
+
+ ### Contact-Page
+* Full contact page.
+
+![](/assets/testing-file/contact-page.gif)
+
+### Register-Page-Responsive
+* The Register page responsive on all the devices.
+
+![](/assets/testing-file/form-page-responsive.gif)
+
+ ### Register-Page
+* Full register page.
+
+![](/assets/testing-file/form-page.gif)
