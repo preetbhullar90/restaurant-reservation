@@ -67,6 +67,8 @@
 
 ![](/assets/testing-file/about-page.gif)
 
+[Go Top](#Table-of-contents)
+
 ### Menu-Page-Responsive
 * The Menu page responsive on all the devices.
 
@@ -95,6 +97,8 @@
  ### Contact-Page
 * Full contact page.
 
+[Go Top](#Table-of-contents)
+
 ![](/assets/testing-file/contact-page.gif)
 
 ### Register-Page-Responsive
@@ -106,3 +110,37 @@
 * Full register page.
 
 ![](/assets/testing-file/form-page.gif)
+
+[Go Top](#Table-of-contents)
+
+## Automated Testing
+
+### Code Validation
+The [W3C Markup Validator](https://validator.w3.org/) service was used to validate the `HTML` code used.
+
+**Results:**
+
+### **HTML File**
+![](/assets/testing-file/html-pp4-test-file.PNG)
+
+The [W3C CSS Validator](https://jigsaw.w3.org/css-validator/) service was used to validate the `CSS` coded used.
+
+### **Css Result**
+
+![](/assets/testing-file/css-pp4-testing-file.PNG)
+
+### Browser Validation
+- Chrome - [test image](/assets/testing-file/browser-test/chrome.PNG)
+- Edge - [test image](/assets/testing-file/browser-test/edge.PNG)
+- Opera - [test image](/assets/testing-file/browser-test/opera.PNG)
+- Firefox - [test image](/assets/testing-file/browser-test/firefox.PNG)
+
+
+
+## Lighthouse
+
+* Website performance checked in lighthouse developer-tool,with the following result :
+
+![](/assets/testing-file/lighthouse.PNG)
+
+[Go Top](#Table-of-contents)
