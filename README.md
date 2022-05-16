@@ -41,7 +41,7 @@
 
 ## Introduction
 
-This is my 4th project at code institute.This is restaurant website designed to display to the customers and allow them to make a booking and edit,view and delete the booking.In this website customers need to login or register on the website for booking, otherwise they can't see any booking and the website will take them on login page.This website deployed on heroku.
+This is my 4th project at code institute. This project is a restaurant website designed to advertise the restaurant and to allow the customer to make and manage any bookings. On this website, customers need to login or register on the website, where they can manage their booking, by logging on they can view, delete and change their bookings. If the customer does not login or register, they will only see a login option on the booking page. This website is deployed on Heroku.
 
 ## User Experience
 
@@ -53,51 +53,56 @@ This is my 4th project at code institute.This is restaurant website designed to 
 
 #### New users :
 
-* For new/potential user, I have included all the information about the restaurant on one page.
-* As a admin user, I can login website to the access the site's backend.
-* As a admin user, I can update,delete and accept or reject the reservation.
-* As a new/potential user, I can login or register on website to view or edit my bookings.
-* As a new/potential user, I can see Breakfat,Lunch and Dinner menu seprately.
+* For new/potential users, I have included all the information about the restaurant on one page.
+* As an admin user, I can login to the website to access the site's backend.
+* As an admin user, I can update, delete and accept or reject the reservations.
+* As a new/potential user, I can login or register on the website to view or edit my bookings.
+* As a new/potential user, I can see the Breakfast, Lunch and Dinner menu separately.
 
 
 #### Current Users :
-- As a current user, I can login my account.
-- As a current user, I can Edit,View and Cancel my bookings.
+- As a current user, I can login to my account.
+- As a current user, I can Edit, View and Cancel my bookings.
 - As a current user, I can check my previous booking status.
-- As a current user, I can contact to the restaurant regarding my current booking information.
+- As a current user, I can contact the restaurant regarding my current booking information.
 - As a current user, I can see all the new updates about the menu.
+
 
 ## Target
 
-- On the website home page I have added a big background image about the food serving in the resturant, This image push people to come in the restaurant.
-- On the website home page I have added a video clip about the restautant service and food, so that people can see everything about the restaurant before book a table.
+- On the website home page, I have added a large background image about the food served in the restaurant, this image would persuade customers to visit the restaurant.
+- On the website home page, I have added a video clip about the restaurant’s service and food, so that people can see everything about the restaurant before booking a table.
+
 
 #### Structure
-In this website i used five apps:
+In this website I have used five apps:
 
-1. Aboutus - restaurant history, chefs
-2. Menu - menu display
-3. Reservation - reservations enquiries & customer management
-4. Home - Information of all the pages
-5. Contact - users feedback
+1.  About us - restaurant history, chefs
+2.	Menu - menu display
+3.	Reservation - reservations enquiries & customer management
+4.	Home - Information about all the pages
+5.	Contact - user feedback
+
 
 ### Databases
 
-The menu, aboutus and reservation apps require databases to store information so I have built 8 custom models. 
+The menu, about us and reservation apps require databases to store information, so I have built 8 custom models.
 
 #### Menu
-In the menu app i created two models names Meals & Category, these are two models that provide all the information required to display the items as part of the restaurant's menu. Each item has a name, description, price and for how many people. 
+In the menu app I created two models named Meals & Category, these are two models that provide all the information required to display the items as a part of the restaurant's menu. Each item has a name, description, price, and information on how many people the dish serves.
+
+This model is following this flow diagram:
 
 #### Reservation
-There are 3 models in reservation app, Customer, Table & Reservation.These 3 models allow for customer details to be stored, reservation enquiries to be made & managed & also enable availability checks whilst the user is enquiring. 
+There are 3 models in the reservation app, Customer, Table & Reservation. These 3 models allow for the customer details to be stored, reservation enquiries to be made, managed & also enable availability checks whilst the user is enquiring.
 
-For each reservation, there will be a customer & table assigned to it. The customer is assigned during the enquiry process and the tables are manage in the backend by the admin user. This model only works if user is login or registerd. Logged in users will have their details with the user email address as this is how they are located in the customer model.
+For each reservation, there will be a customer & table assigned to it. The customer is assigned during the enquiry process and the tables are managed in the backend by the admin user. This model only works if the user is logged-in or registered. Logged-in users will have their details linked with the user email address as this is how they are located in the customer model.
 
-The tables model is used for checking the availablity of the tables in the resturant. This process used by backend admin user, Admin user checks if there is avaiable table in the restaurant then he accept user table request according to the avaliabilty.
+The tables model is used for checking the availability of the tables in the restaurant. This process is used by the backend admin user, who checks if there is an available table in the restaurant then he can accept the user’s table request according to the availability.
+
+This model is following this flow diagram:
 
 #### Aboutus
-There are 3 models in aboutus app, AboutUs, Why_Choose_Us and Chef. AboutUs model is used for display the history of the restaurant with image.Why_Choose_Us model is created for show the 3 blocks, One is to read about out staff, Second is to about fresh food and the last one is read about our food quality.Chef model is used for show the information about our chef with chef image, name and social accounts.
+There are 3 models in the about us app, About Us, Why_Choose_Us and Chef. The About Us model is used to display the history of the restaurant with an image. Why_Choose_Us model is created to show the 3 blocks, one is to read about our staff, the Second is about fresh food and the last one is to read about our food quality. The chef model is used to show the information about our chef with a chef’s image, name and social accounts.
 
-The type of site structure I have chosen for my website is a hierarchical structure which is demonstrated in the image below. The information architecture was arranged like this to ensure a user friendly experience as well as smooth navigation between the pages.
-
-           # Image here
+This model is following this flow diagram:

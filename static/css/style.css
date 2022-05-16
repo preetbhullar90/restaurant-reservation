@@ -1,10 +1,3 @@
-/**
-* Template Name: Restaurantly - v3.1.0
-* Template URL: https://bootstrapmade.com/restaurantly-restaurant-template/
-* Author: BootstrapMade.com
-* License: https://bootstrapmade.com/license/
-*/
-
 /*--------------------------------------------------------------
 # General
 --------------------------------------------------------------*/
@@ -238,7 +231,7 @@ h1, h2, h3, h4, h5, h6 {
 # Navigation Menu
 --------------------------------------------------------------*/
 /**
-* Desktop Navigation 
+* Desktop Navigation
 */
 .navbar {
   padding: 0;
@@ -339,7 +332,7 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 /**
-* Mobile Navigation 
+* Mobile Navigation
 */
 .mobile-nav-toggle {
   color: #fff;
@@ -549,12 +542,8 @@ h1, h2, h3, h4, h5, h6 {
   animation-delay: 0s;
   -webkit-animation: pulsate-btn 2s;
   animation: pulsate-btn 2s;
-  /* -webkit-animation-direction: forwards; */
-  /* animation-direction: forwards; */
   -webkit-animation-iteration-count: infinite;
   animation-iteration-count: infinite;
-  /* -webkit-animation-timing-function: steps;
-  animation-timing-function: steps; */
   opacity: 1;
   border-radius: 50%;
   border: 5px solid rgba(205, 164, 94, 0.7);
@@ -685,7 +674,6 @@ section {
   font-weight: 700;
   font-family: "Playfair Display", serif;
   color: #cda45e;
-  
 }
 
 /*--------------------------------------------------------------
@@ -748,7 +736,6 @@ section {
   background-size: cover;
   position: relative;
   padding: 80px 0;
-  
 }
 
 .about:before {
@@ -815,31 +802,29 @@ section {
 .about .content h3 {
   font-weight: 600;
   font-size: 26px;
-  
+
 }
 
 .about .content ul {
   list-style: none;
   padding: 0;
-  
+
 }
 
 .about .content ul li {
   padding-bottom: 10px;
-  
+
 }
 
 .about .content ul i {
   font-size: 20px;
   padding-right: 4px;
   color: #cda45e;
-
-  
 }
 
 .about .content p:last-child {
   margin-bottom: 0;
-  
+
 }
 
 @media (min-width: 1024px) {

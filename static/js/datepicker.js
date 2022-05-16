@@ -1,9 +1,6 @@
 $("#id_date").datepicker({minDate: 0});
 
 
-
-
-
 /* prevent add past date in date field */
 
 $("#reservation-form").one('submit', (function (e) {

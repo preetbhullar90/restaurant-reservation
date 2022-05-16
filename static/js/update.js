@@ -5,7 +5,6 @@ let update_reservation2 = document.getElementById('id_time');
 let update_reservation3 = document.getElementById('id_date');
 
 
-
 update_reservation1.placeholder='Persons..', update_reservation1.className += 'form-control text-white shadow-none';
 update_reservation1.style.borderColor='#625b4b',
 update_reservation1.style.backgroundColor='#0c0b09';

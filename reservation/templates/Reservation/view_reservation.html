@@ -2,149 +2,76 @@
 {% load static %}
 {% block content %}
 
- <!-- ======= Book A Table Section ======= -->
- <section id="book-a-table" class="book-a-table">
-    <div class="container" data-aos="fade-up">
+<!-- ======= View reservation Section ======= -->
 
-      <div class="section-title">
-        <h2>Reservation</h2>
-        <p>Your Booking</p>
-        {% for message in messages %}
-        <div class="input-group justify-content-center mb-4">
-          <div class="alert alert-success" role="alert" id="msg">
-            <h4 class="alert-heading">{{message}}</h4>
+<section id="book-a-table" class="book-a-table">
+  <div class="container" data-aos="fade-up">
+    <div class="section-title">
+      <h2>Reservation</h2>
+      <p>Your Booking</p>
+      {% for message in messages %}
+      <div class="input-group justify-content-center mb-4">
+        <div class="alert alert-success" role="alert" id="msg">
+          <h4 class="alert-heading">{{message}}</h4>
         </div>
       </div>
-          <br>
-          <br>
+      <br>
+      <br>
       {% endfor %}
 
-<!-- 
-        <table class="table border-dark mt-4" style="background-color: #cda45e;">
-          
-            <tr class="text-white">
-              <th scope="col">Id</th>
-              <th scope="col">People</th>
-              <th scope="col">Time</th>
-              <th scope="col">Date</th>
-              <th scope="col">Go Back</th>
-              <th scope="col">Update</th>
-              <th scope="col">Delete</th>
-            </tr>
-            {% for res in pp %}
-         
-          
-            <tr class="bg-dark text-white border border-dark">
-              <th scope="row">{{res.id}}</th>
-              <td>{{res.persons}}</td>
-              <td>{{res.time}}</td>
-              <td>{{res.date}}</td> 
-              <td>
-                
-
-                <div class="input-group-append">
-                  <a class="btn btn-primary" href="{% url 'reservation:reserve_table' %}">
-                      <span class="text-white h-100">
-                        <i class="fa fa-arrow-left"></i></i></span> Back </a>
-                    </div>
-              </td> 
-              <td>
-              
-
-                <div class="input-group-append">
-                 
-                      <span class="text-white h-100">
-                        <i class="fa fa-pen"></i></span> Edit </a>
-                    </div>
-
-                
-              </td> 
-              <td>
-                <div class="input-group-append">
-                
-                      <span class="text-white h-100">
-                        <i class="fa fa-trash x-5"></i></span> Cancel </a>
-                    </div>
-              </td> 
-              
-              
-            </tr>
-            {% endfor %}
-           
-          
-        </table>
-        
-      </div> -->
-
-      
-     
-      
-      
-      
-          
-     
-        
-
-
-
-
-
       <div class="bg-dark">
-    
         <div class="row d-flex justify-content-center mb-5">
-            <div class="col-sm-12">
-                <div class="row d-flex justify-content-center">
-                    <!-- Each reservation -->
-                    {% for reservation in view_booking %}
-                    <div class="col-md-6 col-lg-4 m-5">
-                        <div class=" text-center ">
-                            <h4>
-                                <h4>Reservation ID: {{ reservation.id }} </h4>
-                            </h4>
-                            <!-- To display '1 person' instead of '1 people' -->
-                            {% if reservation.persons == 1 %}
-                            <h4>Guests: {{ reservation.persons }} person </h4>
-                            {% else %}
-                            <h4>Guests: {{ reservation.persons }} people </h4>
-                            {% endif %}
-                            <h4>Time: {{ reservation.time }} </h4>
-                            <h4 class=" mb-4">Date: <span>{{ reservation.date|date:"m/d/Y"}}</span>
-                            </h4>
+          <div class="col-sm-12">
+            <div class="row d-flex justify-content-center">
 
-                                <div class="text-center">
-                                    <a href="{% url 'reservation:update_reservations' reservation.id%}"
-                                        class="button submit-button inline-btn bg-success text-white p-2 rounded-pill m-2">Edit Booking</a>
-                                    <a href="{% url 'reservation:delete_reservations' reservation.id%}"
-                                        class="button cancel-button inline-btn bg-danger text-white p-2 rounded-pill">Cancel Booking</a>
-    
-                                      </div>
-                                      <div class="text-center mt-5">
-                                      <a href="{% url 'reservation:reserve_table' %}"
-                                      class="button cancel-button inline-btn bg-info text-white p-2 rounded-pill m-2">Go Back</a>
-                                      <a href="{% url 'reservation:create_order' %}"
-                                      class="button cancel-button inline-btn bg-info text-white p-2 rounded-pill">New Booking</a>
-                                      </div>
-                                <hr>
-                                </li>
-                              </div>
-                    </div>
-                    <!-- Show two per row -->
-                    {% if forloop.counter|divisibleby:2 %}
+              <!-- Each reservation -->
+              {% for reservation in view_booking %}
+              <div class="col-md-6 col-lg-4 m-5">
+                <div class=" text-center ">
+                  <h4>
+                    <h4>Reservation ID: {{ reservation.id }} </h4>
+                  </h4>
+
+                  <!-- To display '1 person' instead of '1 people' -->
+                  {% if reservation.persons == 1 %}
+                  <h4>Guests: {{ reservation.persons }} person </h4>
+                  {% else %}
+                  <h4>Guests: {{ reservation.persons }} people </h4>
+                  {% endif %}
+                  <h4>Time: {{ reservation.time }} </h4>
+                  <h4 class=" mb-4">Date: <span>{{ reservation.date|date:"m/d/Y"}}</span>
+                  </h4>
+
+                  <div class="text-center">
+                    <a href="{% url 'reservation:update_reservations' reservation.id%}"
+                      class="button submit-button inline-btn bg-success text-white p-2 rounded-pill m-2">Edit
+                      Booking</a>
+                    <a href="{% url 'reservation:delete_reservations' reservation.id%}"
+                      class="button cancel-button inline-btn bg-danger text-white p-2 rounded-pill">Cancel Booking</a>
+                  </div>
+                  <div class="text-center mt-5">
+                    <a href="{% url 'reservation:reserve_table' %}"
+                      class="button cancel-button inline-btn bg-info text-white p-2 rounded-pill m-2">Go Back</a>
+                    <a href="{% url 'reservation:create_order' %}"
+                      class="button cancel-button inline-btn bg-info text-white p-2 rounded-pill">New Booking</a>
+                  </div>
+                  <hr>
+                  </li>
                 </div>
-                <div class="row d-flex justify-content-center">
-                    {% endif %}
-                    {% endfor %}
-                </div>
+              </div>
+
+              <!-- Show two per row -->
+              {% if forloop.counter|divisibleby:2 %}
             </div>
+            <div class="row d-flex justify-content-center">
+              {% endif %}
+              {% endfor %}
+            </div>
+          </div>
         </div>
+      </div>
     </div>
-
-
-
-
-    </div>
-  </section>
-  <!-- End Book A Table Section -->
-  
+</section>
+<!-- ======= End View reservation Section ======= -->
 
 {% endblock content %}

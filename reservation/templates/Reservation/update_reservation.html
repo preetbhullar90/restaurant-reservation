@@ -1,76 +1,51 @@
-{% extends 'base.html' %} 
-{% load static %} 
+{% extends 'base.html' %}
+{% load static %}
 {% block content %}
 
-<!-- ======= Book A Table Section ======= -->
+<!-- ======= Update A Table Section ======= -->
+
 <section id="book-a-table" class="book-a-table">
   <div class="container" data-aos="fade-up">
     <div class="section-title">
       <h2>Reservation</h2>
       <p>Update Your Booking</p>
-
-     
     </div>
 
-
-
-    <form action="" method="POST" role="form" >
+    <form action="" method="POST" role="form">
       {% csrf_token %}
-    
-        <div class="input-group mb-4 justify-content-center">
-          <div class="input-group-append">
-            <span class="input-group-text h-100 text-warning bg-dark btn-outline-secondary"><i class="fa fa-user pt-1 pb-1"></i></span>
-          
-          </div>
-          
-          {{form.persons}}
-          
-          </div>
-    
-          <div class="input-group mb-4 justify-content-center">
-            <div class="input-group-append">
-              <span class="input-group-text h-100 text-warning bg-dark btn-outline-secondary"><i class="fa fa-solid fa-clock pt-1 pb-1"></i></span>
-            
-            </div>
-            
-            {{form.time}}
-            
-            </div>
 
-            
-            <div class="input-group mb-4 justify-content-center" id="reservation-form">
-              <div class="input-group-append">
-                <span class="input-group-text h-100 text-warning bg-dark btn-outline-secondary"><i class="fa fa-calendar pt-1 pb-1"></i></span>
-                
-              </div>
-              
-              {{form.date}}
-            </div>
-           
-    
-    
+      <div class="input-group mb-4 justify-content-center">
+        <div class="input-group-append">
+          <span class="input-group-text h-100 text-warning bg-dark btn-outline-secondary"><i
+              class="fa fa-user pt-1 pb-1"></i></span>
+        </div>
+        {{form.persons}}
+      </div>
 
-              
-    
-              <div class="input-group mb-4 justify-content-center">
-                <div class="input-group-append">
-                    <input type="submit" class="btn-lg btn-warning" value="submit" />
-                    
-    
-                </div>
-                
-            </div>
+      <div class="input-group mb-4 justify-content-center">
+        <div class="input-group-append">
+          <span class="input-group-text h-100 text-warning bg-dark btn-outline-secondary"><i
+              class="fa fa-solid fa-clock pt-1 pb-1"></i></span>
+        </div>
+        {{form.time}}
+      </div>
 
+      <div class="input-group mb-4 justify-content-center" id="reservation-form">
+        <div class="input-group-append">
+          <span class="input-group-text h-100 text-warning bg-dark btn-outline-secondary"><i
+              class="fa fa-calendar pt-1 pb-1"></i></span>
+        </div>
+        {{form.date}}
+      </div>
 
-
-
-
-
-            
+      <div class="input-group mb-4 justify-content-center">
+        <div class="input-group-append">
+          <input type="submit" class="btn-lg btn-warning" value="submit" />
+        </div>
+      </div>
     </form>
-
   </div>
 </section>
-<!-- End Book A Table Section -->
+<!-- End Update A Table Section -->
 
 {% endblock content %}

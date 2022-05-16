@@ -14,7 +14,6 @@ class TestContactViews(SimpleTestCase):
 
     def test_contact_page_POST_sends_email(self):
         response = self.client.post(self.contact_page_url)
-
         mail.send_mail('Subject here', 'Here is the message.',
                        'from@example.com', ['to@example.com'],
                        )

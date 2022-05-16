@@ -3,86 +3,87 @@
 {% block content %}
 
 <section id="about" class="about">
-      <div class="container" data-aos="fade-up">
+  <div class="container" data-aos="fade-up">
 
-        <div class="row">
-          <div class="col-lg-6 order-1 order-lg-2" data-aos="zoom-in" data-aos-delay="100">
-            <div class="about-img">
-              <img src="{{about.image.url}}" alt="">
-            </div>
-          </div>
-          <div class="col-lg-6 pt-4 pt-lg-0 order-2 order-lg-1 content">
-            <h3 id="resturant-title">{{about.title}}</h3>
-            <p id="resturant-content">
-              {{about.content}}
-            </p>
-          </div>
+    <div class="row">
+      <div class="col-lg-6 order-1 order-lg-2" data-aos="zoom-in" data-aos-delay="100">
+        <div class="about-img">
+          <img src="{{about.image.url}}" alt="">
         </div>
-
       </div>
-    </section>
+      <div class="col-lg-6 pt-4 pt-lg-0 order-2 order-lg-1 content">
+        <h3 id="resturant-title">{{about.title}}</h3>
+        <p id="resturant-content">
+          {{about.content}}
+        </p>
+      </div>
+    </div>
+
+  </div>
+</section>
 
 
-    <!-- ======= Why Us Section ======= -->
-    <section id="why-us" class="why-us">
-        <div class="container" data-aos="fade-up">
+<!-- ======= Why Us Section ======= -->
+<section id="why-us" class="why-us">
+  <div class="container" data-aos="fade-up">
 
-            <div class="section-title">
-                <h2>Why Us</h2>
-                <p>Why Choose Our Restaurant</p>
-            </div>
+    <div class="section-title">
+      <h2>Why Us</h2>
+      <p>Why Choose Our Restaurant</p>
+    </div>
 
-            <div class="row">
-            {% for info in why_choose_us %}
+    <div class="row">
+      {% for info in why_choose_us %}
 
-            <div class="col-lg-4 mt-4 mt-lg-0">
-              <div class="box" data-aos="zoom-in" data-aos-delay="300">
-                <span>{{info.id}}</span>
-                <h1> {{info.title}}</h1>
-                <p>{{info.content}}</p>
-              </div>
-            </div>
-            {% endfor %}
+      <div class="col-lg-4 mt-4 mt-lg-0">
+        <div class="box" data-aos="zoom-in" data-aos-delay="300">
+          <span>{{info.id}}</span>
+          <h1> {{info.title}}</h1>
+          <p>{{info.content}}</p>
         </div>
+      </div>
+      {% endfor %}
+    </div>
 
-        </div>
-      </section><!-- End Why Us Section -->
+  </div>
+</section>
+<!-- End Why Us Section -->
 
 
-       <!-- ======= Chefs Section ======= -->
-    <section id="chefs" class="chefs">
-        <div class="container" data-aos="fade-up">
+<!-- ======= Chefs Section ======= -->
+<section id="chefs" class="chefs">
+  <div class="container" data-aos="fade-up">
 
-          <div class="section-title">
-            <h2>Chefs</h2>
-            <p>Our Proffesional Chefs</p>
+    <div class="section-title">
+      <h2>Chefs</h2>
+      <p>Our Proffesional Chefs</p>
+    </div>
+
+    <div class="row">
+      {% for chefs in chef %}
+      <div class="col-lg-4 col-md-6">
+        <div class="member" data-aos="zoom-in" data-aos-delay="300">
+          <img src="{{chefs.image.url}}" class="img-fluid" alt="">
+          <div class="member-info">
+            <div class="member-info-content">
+              <h4>{{chefs.name}}</h4>
+              <span>{{chefs.title}}</span>
+            </div>
+            <div class="social">
+              <a href="https://www.twitter.com" target="_blank"><i class="bi bi-twitter"></i></a>
+              <a href="https://www.facebook.com" target="_blank"><i class="bi bi-facebook"></i></a>
+              <a href="https://www.instagram.com" target="_blank"><i class="bi bi-instagram"></i></a>
+              <a href="https://www.linkedin.com" target="_blank"><i class="bi bi-linkedin"></i></a>
+            </div>
           </div>
-
-          <div class="row">
-            {% for chefs in chef %}
-            <div class="col-lg-4 col-md-6">
-              <div class="member" data-aos="zoom-in" data-aos-delay="300">
-                <img src="{{chefs.image.url}}" class="img-fluid" alt="">
-                <div class="member-info">
-                  <div class="member-info-content">
-                    <h4>{{chefs.name}}</h4>
-                    <span>{{chefs.title}}</span>
-                  </div>
-                  <div class="social">
-                    <a href="https://www.twitter.com" target="_blank"><i class="bi bi-twitter"></i></a>
-                    <a href="https://www.facebook.com" target="_blank"><i class="bi bi-facebook"></i></a>
-                    <a href="https://www.instagram.com" target="_blank"><i class="bi bi-instagram"></i></a>
-                    <a href="https://www.linkedin.com" target="_blank"><i class="bi bi-linkedin"></i></a>
-                  </div>
-                </div>
-              </div>
-            </div>
-            {% endfor %}
-          </div>
-
         </div>
-      </section>
-      <!-- End Chefs Section -->
+      </div>
+      {% endfor %}
+    </div>
+
+  </div>
+</section>
+<!-- End Chefs Section -->
 
 
 {% endblock content %}

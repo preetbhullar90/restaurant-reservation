@@ -1,232 +1,213 @@
 {% extends 'base.html' %}
 {% load static %}
-
 {% block content %}
 
 <section id="about" class="about">
-    <div class="container" data-aos="fade-up">
-
-      <div class="row">
-        <div class="col-lg-6 order-1 order-lg-2" data-aos="zoom-in" data-aos-delay="100">
-          <div class="about-img">
-            <img src="{{about.image.url}}" alt="">
-          </div>
-        </div>
-        <div class="col-lg-6 pt-4 pt-lg-0 order-2 order-lg-1 content">
-          <h3 id="resturant-title">{{about.title}}</h3>
-          <p id="resturant-content">
-            {{about.content}}
-          </p>
+  <div class="container" data-aos="fade-up">
+    <div class="row">
+      <div class="col-lg-6 order-1 order-lg-2" data-aos="zoom-in" data-aos-delay="100">
+        <div class="about-img">
+          <img src="{{about.image.url}}" alt="">
         </div>
       </div>
-
+      <div class="col-lg-6 pt-4 pt-lg-0 order-2 order-lg-1 content">
+        <h3 id="resturant-title">{{about.title}}</h3>
+        <p id="resturant-content">
+          {{about.content}}
+        </p>
+      </div>
     </div>
-  </section>
+  </div>
+</section>
 
 
-  <!-- ======= Why Us Section ======= -->
-  <section id="why-us" class="why-us">
-      <div class="container" data-aos="fade-up">
-
-          <div class="section-title">
-              <h2>Why Us</h2>
-              <p>Why Choose Our Restaurant</p>
-          </div>
-          <div class="row">
-          {% for info in why_choose_us %}
-
-          <div class="col-lg-4 mt-4 mt-lg-0">
-            <div class="box" data-aos="zoom-in" data-aos-delay="300">
-              <span>{{info.id}}</span>
-              <h1> {{info.title}}</h1>
-              <p>{{info.content}}</p>
-            </div>
-          </div>
-          {% endfor %}
-      </div>
-
-      </div>
-    </section><!-- End Why Us Section -->
-
-
-
-
-    <!-- ======= Menu Section ======= -->
-    <section id="menu" class="menu section-bg">
-        <div class="container" data-aos="fade-up">
-
-          <div class="section-title">
-            <h2>Menu</h2>
-            <p>Check Our Tasty Menu</p>
-          </div>
-          <div class="row" data-aos="fade-up" data-aos-delay="100">
-            <div class="col-lg-12 d-flex justify-content-center">
-                <ul id="menu-flters">
-                  <li data-filter="*" class="filter-active">All</li>
-                  {% for  category in categories %}
-                  <li data-filter=".filter-{{category}}">{{category}}</li>
-                  {% endfor %}
-                </ul>
-              </div>
-          </div>
-
-          <div class="row menu-container" data-aos="fade-up" data-aos-delay="200">
-            {% for  category in categories %}
-            {% for meal in meal_list %}
-            {% if meal.category == category %}
-                <div class="col-lg-6 menu-item filter-{{category}}">
-                <img src='{{ meal.image.url }}' class="menu-img" alt="">
-                <div class="menu-content">
-                    <a href="{% url 'menu:meal_detail' meal.slug %}">{{ meal.name }}</a><span>£{{ meal.price }}</span>
-                </div>
-                <div class="menu-ingredients">
-                    {{ meal.description }}
-                </div>
-                </div>
-            {% endif %}
-            {% endfor %}
-            {% endfor %}
-          </div>
+<!-- ======= Why Us Section ======= -->
+<section id="why-us" class="why-us">
+  <div class="container" data-aos="fade-up">
+    <div class="section-title">
+      <h2>Why Us</h2>
+      <p>Why Choose Our Restaurant</p>
+    </div>
+    <div class="row">
+      {% for info in why_choose_us %}
+      <div class="col-lg-4 mt-4 mt-lg-0">
+        <div class="box" data-aos="zoom-in" data-aos-delay="300">
+          <span>{{info.id}}</span>
+          <h1> {{info.title}}</h1>
+          <p>{{info.content}}</p>
         </div>
-      </section><!-- End Menu Section -->
+      </div>
+      {% endfor %}
+    </div>
+  </div>
+</section><!-- End Why Us Section -->
+
+
+
+
+<!-- ======= Menu Section ======= -->
+<section id="menu" class="menu section-bg">
+  <div class="container" data-aos="fade-up">
+    <div class="section-title">
+      <h2>Menu</h2>
+      <p>Check Our Tasty Menu</p>
+    </div>
+    <div class="row" data-aos="fade-up" data-aos-delay="100">
+      <div class="col-lg-12 d-flex justify-content-center">
+        <ul id="menu-flters">
+          <li data-filter="*" class="filter-active">All</li>
+          {% for  category in categories %}
+          <li data-filter=".filter-{{category}}">{{category}}</li>
+          {% endfor %}
+        </ul>
+      </div>
+    </div>
+    <div class="row menu-container" data-aos="fade-up" data-aos-delay="200">
+      {% for  category in categories %}
+      {% for meal in meal_list %}
+      {% if meal.category == category %}
+      <div class="col-lg-6 menu-item filter-{{category}}">
+        <img src='{{ meal.image.url }}' class="menu-img" alt="">
+        <div class="menu-content">
+          <a href="{% url 'menu:meal_detail' meal.slug %}">{{ meal.name }}</a><span>£{{ meal.price }}</span>
+        </div>
+        <div class="menu-ingredients">
+          {{ meal.description }}
+        </div>
+      </div>
+      {% endif %}
+      {% endfor %}
+      {% endfor %}
+    </div>
+  </div>
+</section><!-- End Menu Section -->
 
 
 
 <!-- ======= Chefs Section ======= -->
 <section id="chefs" class="chefs">
-    <div class="container" data-aos="fade-up">
-
-      <div class="section-title">
-        <h2>Chefs</h2>
-        <p>Our Proffesional Chefs</p>
-      </div>
-
-      <div class="row">
-        {% for chefs in chef %}
-        <div class="col-lg-4 col-md-6">
-          <div class="member" data-aos="zoom-in" data-aos-delay="300">
-            <img src="{{chefs.image.url}}" class="img-fluid" alt="">
-            <div class="member-info">
-              <div class="member-info-content">
-                <h4>{{chefs.name}}</h4>
-                <span>{{chefs.title}}</span>
-              </div>
-              <div class="social">
-                <a href="https://www.twitter.com" target="_blank"><i class="bi bi-twitter"></i></a>
-                <a href="https://www.facebook.com" target="_blank"><i class="bi bi-facebook"></i></a>
-                <a href="https://www.instagram.com" target="_blank"><i class="bi bi-instagram"></i></a>
-                <a href="https://www.linkedin.com" target="_blank"><i class="bi bi-linkedin"></i></a>
-              </div>
+  <div class="container" data-aos="fade-up">
+    <div class="section-title">
+      <h2>Chefs</h2>
+      <p>Our Proffesional Chefs</p>
+    </div>
+    <div class="row">
+      {% for chefs in chef %}
+      <div class="col-lg-4 col-md-6">
+        <div class="member" data-aos="zoom-in" data-aos-delay="300">
+          <img src="{{chefs.image.url}}" class="img-fluid" alt="">
+          <div class="member-info">
+            <div class="member-info-content">
+              <h4>{{chefs.name}}</h4>
+              <span>{{chefs.title}}</span>
+            </div>
+            <div class="social">
+              <a href="https://www.twitter.com" target="_blank"><i class="bi bi-twitter"></i></a>
+              <a href="https://www.facebook.com" target="_blank"><i class="bi bi-facebook"></i></a>
+              <a href="https://www.instagram.com" target="_blank"><i class="bi bi-instagram"></i></a>
+              <a href="https://www.linkedin.com" target="_blank"><i class="bi bi-linkedin"></i></a>
             </div>
           </div>
         </div>
-        {% endfor %}
       </div>
-
+      {% endfor %}
     </div>
-  </section>
-  <!-- End Chefs Section -->
+  </div>
+</section>
+<!-- End Chefs Section -->
 
 
-  <!-- ======= Book A Table Section ======= -->
-  <a href="{% url 'reservation:create_order' %}">
- <section id="book-a-table" class="book-a-table section-bg">
+<!-- ======= Book A Table Section ======= -->
+<a href="{% url 'reservation:create_order' %}">
+  <section id="book-a-table" class="book-a-table section-bg">
     <div class="container" data-aos="fade-up">
-
       <div class="section-title">
         <h2>Reservation</h2>
         <p>Book a Table</p>
-
       </div>
-      <div class="d-flex justify-content-center text-info"><p>Please click here for book a table.</p></div>
+      <div class="d-flex justify-content-center text-info">
+        <p>Please click here for book a table.</p>
+      </div>
       <div class="d-flex justify-content-center">
-        <img class="col-lg-6" src="https://res.cloudinary.com/codeinstitute/image/upload/v1647534122/static/img/tableimage.22c8e7016345.jpg" alt="booking-table">
-
-
-     </div>
+        <img class="col-lg-6"
+          src="https://res.cloudinary.com/codeinstitute/image/upload/v1647534122/static/img/tableimage.22c8e7016345.jpg"
+          alt="booking-table">
+      </div>
     </div>
   </section>
 </a>
-  <!-- End Book A Table Section -->
+<!-- End Book A Table Section -->
 
 
- <!-- ======= Contact Section ======= -->
- <section id="contact" class="contact">
+<!-- ======= Contact Section ======= -->
+<section id="contact" class="contact">
   <div class="container" data-aos="fade-up">
-  <div class="section-title">
-    <h2>Contact</h2>
-    <p>Contact Us</p>
+    <div class="section-title">
+      <h2>Contact</h2>
+      <p>Contact Us</p>
+    </div>
   </div>
- </div>
-
   <div data-aos="fade-up">
-  <iframe title="google map" style="border:0; width: 100%; height: 350px;" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2483.151771362912!2d-0.3782926836720516!3d51.51043151830169!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x48760d54c62777df%3A0x54f96cb1689f6a16!2sSouthall%20Broadway%20(Stop%20N)!5e0!3m2!1sen!2suk!4v1630595593008!5m2!1sen!2suk" allowfullscreen></iframe>
+    <iframe title="google map" style="border:0; width: 100%; height: 350px;"
+      src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2483.151771362912!2d-0.3782926836720516!3d51.51043151830169!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x48760d54c62777df%3A0x54f96cb1689f6a16!2sSouthall%20Broadway%20(Stop%20N)!5e0!3m2!1sen!2suk!4v1630595593008!5m2!1sen!2suk"
+      allowfullscreen></iframe>
   </div>
-
-    <div class="container" data-aos="fade-up">
-
-      <div class="row mt-5">
-
-        <div class="col-lg-4">
-          <div class="info">
-            <div class="address">
-              <i class="bi bi-geo-alt"></i>
-              <h4>Location:</h4>
-              <p> Southall Brodway, UB11RT, London</p>
-            </div>
-
-            <div class="open-hours">
-              <i class="bi bi-clock"></i>
-              <h4>Open Hours:</h4>
-              <p>Mon-Sat: 11AM - 23PM</p>
-              <p>Sun: 12AM - 20PM</p>
-              <p>Bank Holidays: Closed</p>
-            </div>
-
-            <div class="email">
-              <i class="bi bi-envelope"></i>
-              <h4>Email:</h4>
-              <p>mochi@gmail.com</p>
-            </div>
-
-            <div class="phone">
-              <i class="bi bi-phone"></i>
-              <h4>Call:</h4>
-              <p>02087851220</p>
-            </div>
-
+  <div class="container" data-aos="fade-up">
+    <div class="row mt-5">
+      <div class="col-lg-4">
+        <div class="info">
+          <div class="address">
+            <i class="bi bi-geo-alt"></i>
+            <h4>Location:</h4>
+            <p> Southall Brodway, UB11RT, London</p>
           </div>
-
-        </div>
-
-        <div class="col-lg-8 mt-5 mt-lg-0">
-
-          <form action="{% url 'contact:send_email' %}" method="POST" >
-
-              <div class="col-md-6 form-group mt-3 mt-md-0">
-                {% csrf_token %}
-                <div class="mb-3">
-                  {{form.name}}
-                </div>
-                <div class="mb-3">
-                  {{form.email}}
-                </div>
-
-                <div class="mb-3">
-                  {{form.message}}
-                </div>
-
-                <div class="input-group mb-4 justify-content-center mt-4">
-                  <div class="input-group-append">
-                      <input type="submit" class="btn-lg btn btn-warning rounded-pill text-white" value="Send Message" />
-                  </div>
-                  </div>
-              </div>
-          </form>
+          <div class="open-hours">
+            <i class="bi bi-clock"></i>
+            <h4>Open Hours:</h4>
+            <p>Mon-Sat: 11AM - 23PM</p>
+            <p>Sun: 12AM - 20PM</p>
+            <p>Bank Holidays: Closed</p>
+          </div>
+          <div class="email">
+            <i class="bi bi-envelope"></i>
+            <h4>Email:</h4>
+            <p>mochi@gmail.com</p>
+          </div>
+          <div class="phone">
+            <i class="bi bi-phone"></i>
+            <h4>Call:</h4>
+            <p>02087851220</p>
+          </div>
         </div>
       </div>
+      <div class="col-lg-8 mt-5 mt-lg-0">
+        <form action="{% url 'contact:send_email' %}" method="POST">
+          <div class="col-md-6 form-group mt-3 mt-md-0">
+            {% csrf_token %}
+
+            <div class="mb-3">
+              {{form.name}}
+            </div>
+
+            <div class="mb-3">
+              {{form.email}}
+            </div>
+
+            <div class="mb-3">
+              {{form.message}}
+            </div>
+
+            <div class="input-group mb-4 justify-content-center mt-4">
+              <div class="input-group-append">
+                <input type="submit" class="btn-lg btn btn-warning rounded-pill text-white" value="Send Message" />
+              </div>
+            </div>
+          </div>
+        </form>
+      </div>
     </div>
-  </section>
+  </div>
+</section>
 <!-- End Contact Section -->
 
 {% endblock content %}

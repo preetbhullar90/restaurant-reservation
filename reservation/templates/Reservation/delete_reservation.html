@@ -1,6 +1,8 @@
-{% extends 'base.html' %} {% load static %} {% block content %}
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
 
-<!-- ======= Book A Table Section ======= -->
+<!-- ======= Delete Booking Section ======= -->
 <section id="book-a-table" class="book-a-table">
   <div class="container" data-aos="fade-up">
     <div class="section-title">
@@ -15,33 +17,15 @@
       <h5>Date {{item.date}}</h5>
     </div>
 
-    <!-- {% for messagess in messages %}
-      <center>
-        <div class="alert alert-success" role="alert" id="msg">
-          <h4 class="alert-heading">Thank you!</h4>
-        <h5>Your table booking done successfully and we will respond shortly...</h5>
-        
-        
-      </div>
-      </center>
-        <br>
-        <br>
-      {% endfor %} -->
-
-    <form
-      action="{% url 'reservation:delete_reservations' item.id %}"
-      method="POST"
-      role="form">
-      
+    <form action="{% url 'reservation:delete_reservations' item.id %}" method="POST" role="form">
       {% csrf_token %}
       <a class="btn btn-warning" href="{% url 'reservation:reserve_table' %}">
         Go Back
       </a>
-
       <input class="btn btn-danger" type="submit" value="Cancel" />
     </form>
   </div>
 </section>
-<!-- End Book A Table Section -->
+<!-- End Delete Booking Section -->
 
 {% endblock content %}
