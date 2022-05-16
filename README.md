@@ -15,33 +15,33 @@
 
 5. [Features](#Features)
 
-6.  [Flowchart](#Flowchart)
+6. [Bugs](#Bugs)
 
-7. [Bugs](#Bugs)
+7. [Other Features](#Other-Features)
 
-8. [Other Features](#Other-Features)
+8. [Features Left to Implement](#Feature-Left-to-Implement)
 
-9. [Features Left to Implement](#Feature-Left-to-Implement)
+9. [Technologies Used](#Technologies-Used)
 
-10. [Technologies Used](#Technologies-Used)
+10. [Frameworks Libraries and Programs Used](#Frameworks-Libraries-and-Programs-Used)
 
-11. [Frameworks Libraries and Programs Used](#Frameworks-Libraries-and-Programs-Used)
-
-12. [Testing](#Testing)
+11. [Testing](#Testing)
 
     - [Testings.md](assets/test-file/testings.md)
 
-13. [Deployment](#Deployment)
+12. [Deployment](#Deployment)
 
-14. [Make a clone](#Make-a-clone)
+13. [Make a clone](#Make-a-clone)
 
-15. [Credit](#Credit)
+14. [Credit](#Credit)
 
-16. [Acknowledgements](#Acknowledgements)
+15. [Acknowledgements](#Acknowledgements)
 
 ## Introduction
 
 This is my 4th project at code institute. This project is a restaurant website designed to advertise the restaurant and to allow the customer to make and manage any bookings. On this website, customers need to login or register on the website, where they can manage their booking, by logging on they can view, delete and change their bookings. If the customer does not login or register, they will only see a login option on the booking page. This website is deployed on Heroku.
+
+[Go Top](#Mochi-Restaurant)
 
 ## User Experience
 
@@ -66,6 +66,8 @@ This is my 4th project at code institute. This project is a restaurant website d
 - As a current user, I can check my previous booking status.
 - As a current user, I can contact the restaurant regarding my current booking information.
 - As a current user, I can see all the new updates about the menu.
+
+[Go Top](#Mochi-Restaurant)
 
 
 ## Target
@@ -106,6 +108,8 @@ This model is following this flow diagram:
 
 ![](/assets/readme-file/reservation-diagram.png)
 
+[Go Top](#Mochi-Restaurant)
+
 #### Aboutus
 There are 3 models in the about us app, About Us, Why_Choose_Us and Chef. The About Us model is used to display the history of the restaurant with an image. Why_Choose_Us model is created to show the 3 blocks, one is to read about our staff, the Second is about fresh food and the last one is to read about our food quality. The chef model is used to show the information about our chef with a chef’s image, name and social accounts.
 
@@ -131,6 +135,8 @@ This model is following this flow diagram:
 
 #### Skeleton
 - I used [Figma](https://www.figma.com/file/jCwcpxiv4ugqY8XK812AA8/Restaurant?node-id=0%3A1) Wireframe for the website.
+
+[Go Top](#Mochi-Restaurant)
 
 ## Features
 
@@ -160,6 +166,8 @@ The about page also has a large background image. Under the image there is a sma
 
 ![](assets/readme-file/about-page.png)
 
+[Go Top](#Mochi-Restaurant)
+
 ### Menu Page
 The menu page has 3 sections for Breakfast, Lunch and Dinner. In this menu customers can see all the details about any dish along with its price.
 
@@ -185,6 +193,8 @@ On the login page, there is a section for the user to login. If user has already
 
 ![](assets/readme-file/login-page.png)
 
+[Go Top](#Mochi-Restaurant)
+
 ### Footer
 A footer is featured on the bottom of every page of the website. The footer has all the detail about the restaurant, In the middle of the footer, there are links to all the pages of the website. On the right-hand side, details about the restaurant opening hours are listed.
 
@@ -195,6 +205,8 @@ A footer is featured on the bottom of every page of the website. The footer has 
 
 ## Issue Left
 * Error when submitting the contact, us form with SMTP.
+
+[Go Top](#Mochi-Restaurant)
 
 ## Other Features
 * The logo is linked to the home page when the user clicks on the logo it will take them to the home page.
@@ -263,6 +275,8 @@ A footer is featured on the bottom of every page of the website. The footer has 
 * [PostgreSQL](https://www.postgresql.org/)
     * I have used Heroku's PostgreSQL relational database in deployment to store the data for my models.
 
+[Go Top](#Mochi-Restaurant)
+
 ## Testing
 The testing process can be found  [here](assets/testing-file/testing.md)
 
@@ -314,6 +328,8 @@ To deploy this project on Heroku I used followed these steps:
 13. This will ensure whenever you change something in the repo and push the changes to GitHub, Heroku will rebuild the app. If you select this manually you can manually deploy options further down. For this project, I did Automatic Deployment to enable me to check changes I made to the app as I developed it.
 
 14. Heroku will now build the app for you. Once it has completed the build process you will see a 'Your App Was Successfully Deployed' message and a link to the app to visit the live site.
+
+[Go Top](#Mochi-Restaurant)
 
 ### Make a Clone
 
@@ -372,3 +388,5 @@ To deploy this project on Heroku I used followed these steps:
 ## Acknowledgements
 * I would especially like to thank my wife, who helped me by giving me some ideas regarding my website. She motivated me to finish this project to the best of my ability.
 * Lastly I would like to thank my mentor Precious ljege, who helped during the whole process of the project.
+
+[Go Top](#Mochi-Restaurant)
