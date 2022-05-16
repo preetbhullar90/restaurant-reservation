@@ -189,3 +189,77 @@ On the login page, there is a section for the user to login. If user has already
 A footer is featured on the bottom of every page of the website. The footer has all the detail about the restaurant, In the middle of the footer, there are links to all the pages of the website. On the right-hand side, details about the restaurant opening hours are listed.
 
 ![](assets/readme-file/footer-page.png)
+
+## Bugs
+* One bug present is when users send the contact form the following error occurs (Network is unreachable) with SMTP. It is working with the (backend console). I have tried to find out the solution on slack, StackOverflow and on google but I have been unable to find a solution.
+
+## Issue Left
+* Error when submitting the contact, us form with SMTP.
+
+## Other Features
+* The logo is linked to the home page when the user clicks on the logo it will take them to the home page.
+* On the form page, the navigation bar and email have a hover option. When the user hovers their mouse over the navigation bar it will highlight to a different colour. This makes it easier to understand for the user that this is a clickable link.
+
+### Feature Left to Implement
+
+* Customer can pay their bill online through the website with a debit card, credit card or PayPal. The reason why I didn't implement this is that I need to use third-party libraries for this, but this project only uses reservations.
+
+## Technologies Used
+
+### Languages Used
+* [HTML5](https://en.wikipedia.org/wiki/HTML5)
+* [CSS3](https://en.wikipedia.org/wiki/CSS)
+* [Python](https://en.wikipedia.org/wiki/Python_(programming_language))
+* [Javascript](https://en.wikipedia.org/wiki/JavaScript)
+* [Jquery](https://en.wikipedia.org/wiki/JQuery)
+
+### Frameworks Libraries and Programs Used
+
+* [Django](https://www.djangoproject.com/)
+  * Django is the framework that has been used to build the over project and its apps.
+
+* [Bootstrap](https://getbootstrap.com/)
+  * Used for creating responsive design.
+
+* [Font Awesome](https://fontawesome.com/ "Link to FontAwesome")
+  * Font awesome was used to import all the icons on the website.
+
+* [Google Fonts](https://fonts.google.com/ "Link to Google Fonts")
+  * Google fonts was used to import the google style fonts in css for example Lato, Oswald and sans-serif.
+
+* [Git](https://git-scm.com/ "Link to Git homepage")
+  * Gitpod was used for writing the code in the terminal it was also used to commit and push the code in GitHub.
+
+* [GitHub](https://github.com/ "Link to GitHub")
+  * GitHub was used to store the data which was pushed by Gitpod.
+
+* [Gitpod](https://www.gitpod.io/)
+    * Used as the development environment.
+* [Heroku](https://dashboard.heroku.com/apps)
+    * Used to deploy my application.
+
+* [Figma](https://www.figma.com/ "Link to Figma homepage")
+  * Figma was used to create the wireframe of the project before starting code on the terminal.
+
+* [Cloudinary](https://cloudinary.com/)
+    * Used to store all of my static files and images.
+
+* [Favicon.io](https://favicon.io/)
+    * Used to create favicon's for my website
+
+* [Am I Responsive?](http://ami.responsivedesign.is/# "Link to Am I Responsive Homepage")
+  * Am I Responsive was used to see if project is responsive on different types of devices.
+
+- [W3C Markup Validation Service](https://validator.w3.org/)
+    - Used to validate all HTML code written and used in this webpage.
+* [W3C CSS Validation Service](https://jigsaw.w3.org/css-validator/#validate_by_input)
+    * Used to validate all CSS code written and used in this webpage.
+* [JSHint](https://jshint.com/)
+    * Used to validate JS code.
+
+* [SQLite](https://www.sqlite.org/index.html)
+    * I have SQLite to run my database tests locally.
+
+* [PostgreSQL](https://www.postgresql.org/)
+    * I have used Heroku's PostgreSQL relational database in deployment to store the data for my models.
+
