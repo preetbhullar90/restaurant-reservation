@@ -263,3 +263,112 @@ A footer is featured on the bottom of every page of the website. The footer has 
 * [PostgreSQL](https://www.postgresql.org/)
     * I have used Heroku's PostgreSQL relational database in deployment to store the data for my models.
 
+## Testing
+The testing process can be found  [here](assets/testing-file/testing.md)
+
+## Deployment
+
+### Github Pages
+To deploy a Django application, The following options were used:
+1. Click the `Use This Template` button.
+2. Add a repository name and description.
+3. Click the `Create Repository from Template` to create your repository.
+4. To create a Gitpod workspace you then need to click `Gitpod`, this can take a few minutes.
+5. When you want to open your project you can go in github and click on your repository then click on gitpod, or you can open with gitpod workspace as well.
+6. when you change or write down new things you have to commit your work in github, use the following commands to make your commits:
+   * `git add .`: adds all modified files to a staging area
+    * `git commit -m "A message explaining your commit"`: commits all changes to a local repository.
+    * `git push`: pushes all your committed changes to your Github repository.
+
+### Heroku Pages
+This site was deploy via Heroku.
+
+This project was developed using a template provide by code institute however the template was upgraded to improve its functionality, which you can see in the commit.
+
+To deploy this project on Heroku I used followed these steps:
+
+1. [Login](https://dashboard.heroku.com/apps) into Heroku.
+
+2. In the main Heroku dashboard select ‘New’in the top right corner.
+
+3. In the drop down, menu select ‘Create New App’.
+
+4. Give a name related your project. I gave hangman-games to my project.
+
+5. When you see green text with your project name then press ‘create app’button.
+
+6. From the dashboard select ‘setting’option.
+
+7. After select setting option scroll down in the config setting. Select the config vars section This will display the current config vars for the app, there should be nothing already there.
+
+8. After config var select Buildpacks option which is located under the config vars option.
+
+9. In the buildpacks select python pack first save it then repeat select nodejs pack and save it.
+
+10. After this scroll up and select ‘Deploy’ option.
+
+11. In the ‘deploy’ option select ‘GitHub’ option to select your project which one you want to deploy on Heroku, choose your project and connect to the Heroku.
+
+12. After connecting your project to Heroku scroll down on Automatic Deploys button.
+
+13. This will ensure whenever you change something in the repo and push the changes to GitHub, Heroku will rebuild the app. If you select this manually you can manually deploy options further down. For this project, I did Automatic Deployment to enable me to check changes I made to the app as I developed it.
+
+14. Heroku will now build the app for you. Once it has completed the build process you will see a 'Your App Was Successfully Deployed' message and a link to the app to visit the live site.
+
+### Make a Clone
+
+1. [Login](https://github.com/)
+
+2.	Click on Your Repository option and select your project
+
+3.	Click on the code dropdown menu.
+
+4.	To clone the repository using HTTPS, click "Clone with HTTPS", and copy the link.
+
+5.	In your local IDE open the Git Bash terminal.
+
+6.	Change the current working directory to the location where you want the cloned directory to be made.
+
+7.	Type git clone, and then paste the URL you copied in Step 3.
+
+           git clone https://github.com/USERNAME/REPOSITORY
+
+8.	Press Enter. Your local clone will be created.
+
+### Forking a Repository
+1.	[Login](https://github.com/) into GitHub.
+
+2.	On the top right, click the fork button.
+
+3.	You will get a copy of the repository in your GitHub account.
+
+## Credit
+
+### Content
+* All content Ideas were taken from researching restaurant using Wikipedia.
+
+### Food Menu
+* Food images,heading and description were taken from [wasabi](https://www.wasabi.uk.com/) and [Mochi Sushi ](https://www.mochisushitx.com/)
+
+### Code
+
+* [Django models](https://www.youtube.com/watch?v=EI02wQ51GjA&list=PLBTOBXTz1YFZK0moSgoZq93V_AdvrUGSj)
+* [Testing](https://www.youtube.com/watch?v=0MrgsYswT1c)
+* [Coverage](https://coverage.readthedocs.io/en/6.2/)
+* [Gmail SMTP](https://www.youtube.com/watch?v=TZL-WFzvDJg)
+* [View Booking](https://www.youtube.com/watch?v=EX6Tt-ZW0so&t=18s)
+* [Update Booking](https://www.youtube.com/watch?v=EX6Tt-ZW0so&t=18s)
+* [Cancel Booking](https://www.youtube.com/watch?v=EX6Tt-ZW0so&t=18s)
+* [Access only login user](https://stackoverflow.com/questions/63602116/django-show-the-content-of-the-model-as-per-the-current-user-logged-in)
+* [Login Form](https://www.youtube.com/watch?v=tUqUdu0Sjyc&t=990s)
+* [Register Form](https://www.youtube.com/watch?v=tUqUdu0Sjyc&t=990s)
+* [Compare date with booking date](https://stackoverflow.com/questions/67896192/comparing-dates-in-django)
+
+### Media
+* Some images download free from [pexels](https://www.pexels.com/search/gym%20and%20fitness/).
+
+* The website template i downloaded free from [theme waGon](https://themewagon.com/theme-tag/restaurant-template/) website
+
+## Acknowledgements
+* I would especially like to thank my wife, who helped me by giving me some ideas regarding my website. She motivated me to finish this project to the best of my ability.
+* Lastly I would like to thank my mentor Precious ljege, who helped during the whole process of the project.

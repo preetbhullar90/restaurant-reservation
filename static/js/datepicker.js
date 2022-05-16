@@ -5,8 +5,8 @@ $("#id_date").datepicker({minDate: 0});
 
 $("#reservation-form").one('submit', (function (e) {
     e.preventDefault();
-    const $this = $(this);
-    const selectedDate = $('#id_date').datepicker('getDate');
+    var $this = $(this);
+    var selectedDate = $('#id_date').datepicker('getDate');
     if ((selectedDate < Date.now())) {
         $("#text").html("Please enter future date");
     } else {
