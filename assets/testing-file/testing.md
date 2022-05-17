@@ -143,4 +143,10 @@ The [W3C CSS Validator](https://jigsaw.w3.org/css-validator/) service was used t
 
 ![](/assets/testing-file/lighthouse.PNG)
 
+
+## Test Coverage
+* The code tested with coverage tool, with the following result:
+
+![](/assets/testing-file/coverage-report.PNG)
+
 [Go Top](#Table-of-contents)

@@ -25,7 +25,7 @@
       {% for meal in meal_list %}
       {% if meal.category == category %}
       <div class="col-lg-6 menu-item filter-{{category}}">
-        <img src='{{ meal.image.url }}' class="menu-img" alt="">
+        <img src='{{ meal.image.url }}' class="menu-img" alt="food dish image">
         <div class="menu-content">
           <a href="{% url 'menu:meal_detail' meal.slug %}">{{ meal.name }}</a><span>£{{ meal.price }}</span>
         </div>
