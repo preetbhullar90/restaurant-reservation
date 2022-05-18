@@ -13,6 +13,6 @@ update_reservation2.placeholder='Time..', update_reservation2.className += 'form
 update_reservation2.style.borderColor='#625b4b',
 update_reservation2.style.backgroundColor='#0c0b09';
 
-update_reservation3.placeholder='05/29/2022', update_reservation3.className += 'form-control text-white shadow-none';
+update_reservation3.placeholder='06/29/2022', update_reservation3.className += 'form-control text-white shadow-none';
 update_reservation3.style.borderColor='#625b4b',
 update_reservation3.style.backgroundColor='#0c0b09';
