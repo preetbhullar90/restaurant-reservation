@@ -151,11 +151,6 @@ DEFAULT_FILE_STORAGE = 'cloudinary_storage.storage.MediaCloudinaryStorage'
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 
-# pip3 install Django==3.2 gunicorn
-# pip3 install dj_database_url psycopg2 Pillow
-# pip3 install dj3-cloudinary-storage
-
-
 # Email settings
 if os.environ.get("DEVELOPMENT"):
     EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
