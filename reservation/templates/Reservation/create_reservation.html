@@ -10,10 +10,12 @@
       <h2>Reservation</h2>
       <p>Book a Table</p>
     </div>
+
+
     <h5 id="text" class="text-danger"></h5>
     {% if user.is_authenticated %}
-    {% if form.errors %}
-    {% for field in form %}
+    {% if customer_form.errors %}
+    {% for field in customer_form %}
     {% for error in field.errors %}
     <div class="text-danger" style="background-color: #0c0b09;">
       <strong>{{ error }}</strong>

@@ -41,6 +41,8 @@
 
 This is my 4th project at code institute. This project is a restaurant website designed to advertise the restaurant and to allow the customer to make and manage any bookings. On this website, customers need to login or register on the website, where they can manage their booking, by logging on they can view, delete and change their bookings. If the customer does not login or register, they will only see a login option on the booking page. This website is deployed on Heroku.
 
+[View the live project here](https://mochi-restaurant.herokuapp.com)
+
 [Go Top](#Mochi-Restaurant)
 
 ## User Experience
@@ -200,11 +202,6 @@ A footer is featured on the bottom of every page of the website. The footer has 
 
 ![](assets/readme-file/footer-page.png)
 
-## Bugs
-* One bug present is when users send the contact form the following error occurs (Network is unreachable) with SMTP. It is working with the (backend console). I have tried to find out the solution on slack, StackOverflow and on google but I have been unable to find a solution.
-
-## Issue Left
-* Error when submitting the contact, us form with SMTP.
 
 [Go Top](#Mochi-Restaurant)
 
@@ -280,9 +277,14 @@ A footer is featured on the bottom of every page of the website. The footer has 
 ## Testing
 The testing process can be found  [here](assets/testing-file/testing.md)
 
+## Bugs
+* One bug present is when users send the contact form the following error occurs (Network is unreachable) with SMTP. It is working with the (backend console). I have tried to find out the solution on slack, StackOverflow and on google but I have been unable to find a solution.
+
+## Issue Left
+* Error when submitting the contact, us form with SMTP.
+
 ## Deployment
 
-### Github Pages
 To deploy a Django application, The following options were used:
 1. Click the `Use This Template` button.
 2. Add a repository name and description.
@@ -294,7 +296,7 @@ To deploy a Django application, The following options were used:
     * `git commit -m "A message explaining your commit"`: commits all changes to a local repository.
     * `git push`: pushes all your committed changes to your Github repository.
 
-### Heroku Pages
+### Heroku
 This site was deploy via Heroku.
 
 This project was developed using a template provide by code institute however the template was upgraded to improve its functionality, which you can see in the commit.
