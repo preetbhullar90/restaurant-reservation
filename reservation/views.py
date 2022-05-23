@@ -62,6 +62,7 @@ def logoutuser(request):
     return redirect('/')
 
 
+
 def check_table_availabilty(customer_requested_time, customer_requested_date):
     """ check availability against Reservation model using customer input """
 
