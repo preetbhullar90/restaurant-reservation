@@ -1808,6 +1808,13 @@ path#XMLID_11_ ,path#XMLID_2_ {
 .message{
 	color:#cda45e;
 }
+.message h2{
+	color:#cda45e;
+  font-size: 42;
+  font-weight: 700;
+  margin: 0;
+  letter-spacing: 1.6px;
+}
 .message:after{
 	content:"]";
 }
@@ -1815,10 +1822,26 @@ path#XMLID_11_ ,path#XMLID_2_ {
 	content:"[";
 }
 
+.notfound p{
+  color: #cda45e;
+  font-weight: 400;
+  margin-top: 20px;
+  margin-bottom: 25px;
+
+}
+
+.submit-button {
+  color: white;
+  background-color: #cda45e;
+  border-color: #cda45e;
+  text-transform: capitalize;
+  cursor: pointer;
+}
+
 .message:after, .message:before {
 
   color: #cda45e;
-  font-size: 20px;
+  font-size: 42px;
   -webkit-animation-name: opacity;
   -webkit-animation-duration: 2s;
   -webkit-animation-iteration-count: infinite;
