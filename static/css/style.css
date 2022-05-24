@@ -1788,6 +1788,7 @@ svg{
     height: 400px;
     text-align: center;
     fill: #cda45e;
+    margin-bottom: 50px;
 }
 path#XMLID_5_ {
 
@@ -1802,10 +1803,11 @@ path#XMLID_11_ ,path#XMLID_2_ {
   fill: #cda45e;
 }
 
-#container{
+#containers{
   text-align:center;
-  margin-bottom: 40px;
+  margin-bottom: 10rem;
 }
+
 .message{
 	color:#cda45e;
 }
@@ -1823,6 +1825,16 @@ path#XMLID_11_ ,path#XMLID_2_ {
 	content:"[";
 }
 
+.notfound{
+  position:absolute;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  max-width: 520px;
+  width: 100%;
+  text-align: center;
+  
+}
+
 .notfound p{
   color: #cda45e;
   font-weight: 400;
@@ -1838,13 +1850,14 @@ path#XMLID_11_ ,path#XMLID_2_ {
   border-color: #cda45e;
   text-transform: capitalize;
   cursor: pointer;
-  padding: 20px;
+  padding: 15px;
   font-size: 20px;
-  border-radius: 20px;
+  border-radius: 50px;
   letter-spacing: 1px;
 }
 .submit-button:hover{
-  color: #000;
+  background-color: #b5832b;
+  color: #fff;
 }
 
 .message h2:after, .message h2:before {
@@ -1887,4 +1900,33 @@ path#XMLID_11_ ,path#XMLID_2_ {
   50%{r:10; opacity: 0.2 ;}
   75%{r:15;opacity:0.1;}
  	100% {r:20;opacity:0;}
+}
+
+/* Media query for 404/500 pages */
+
+@media only screen and (max-width: 480px) {
+  svg {
+      height: 122px;
+      line-height: 122px;
+      width: 300px;
+      margin-bottom: 6rem;
+  }
+
+  .notfound h2 {
+      font-size: 26px;
+  }
+  .notfound p{
+    margin-left: 10px;
+    margin-right: 10px;
+    font-size: 15px;
+  }
+  .submit-button{
+    padding: 10px;
+    font-size: 15px;
+  }
+
+  .message h2:after, .message h2:before {
+    margin:0 20px;
+  }
+
 }
