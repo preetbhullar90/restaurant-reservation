@@ -303,33 +303,41 @@ This project was developed using a template provide by code institute however th
 
 To deploy this project on Heroku I used followed these steps:
 
+- The following command in the Gitpod CLI will create the relevant files needed for Heroku to install your project dependencies `pip3 freeze --local > requirements.txt`. Please make sure this file should be added to a .gitignore file to prevent the file from being committed. A `Procfile` is also required that specifies the commands that are executed by the app on startup.
+
 1. [Login](https://dashboard.heroku.com/apps) into Heroku.
 
 2. In the main Heroku dashboard select ‘New’in the top right corner.
 
 3. In the drop down, menu select ‘Create New App’.
 
-4. Give a name related your project. I gave hangman-games to my project.
+4. Give a name related your project. I gave mochi-restaurant to my project.
 
-5. When you see green text with your project name then press ‘create app’button.
+5. Select the region you are working in.
 
-6. From the dashboard select ‘setting’option.
+6. When you see green text with your project name then press ‘create app’button.
 
-7. After select setting option scroll down in the config setting. Select the config vars section This will display the current config vars for the app, there should be nothing already there.
+7. From the dashboard select ‘setting’option.
 
-8. After config var select Buildpacks option which is located under the config vars option.
+8. You will need to set your Environment Variables - this is a key step to ensuring your application is deployed properly.
 
-9. In the buildpacks select python pack first save it then repeat select nodejs pack and save it.
+9. In the Settings tab, click on `Reveal Config Vars` and set the following variables:
+    - SECRET_KEY - to be set to your chosen key
+    - CLOUDINARY_URL - to be set to your Cloudinary API environment variable
+10. In the resources tab you must install 'Heroku Postgres'
 
-10. After this scroll up and select ‘Deploy’ option.
 
-11. In the ‘deploy’ option select ‘GitHub’ option to select your project which one you want to deploy on Heroku, choose your project and connect to the Heroku.
+11. In the buildpacks select python pack first save it then repeat select nodejs pack and save it.
 
-12. After connecting your project to Heroku scroll down on Automatic Deploys button.
+12. After this scroll up and select ‘Deploy’ option.
 
-13. This will ensure whenever you change something in the repo and push the changes to GitHub, Heroku will rebuild the app. If you select this manually you can manually deploy options further down. For this project, I did Automatic Deployment to enable me to check changes I made to the app as I developed it.
+13. In the ‘deploy’ option select ‘GitHub’ option to select your project which one you want to deploy on Heroku, choose your project and connect to the Heroku.
 
-14. Heroku will now build the app for you. Once it has completed the build process you will see a 'Your App Was Successfully Deployed' message and a link to the app to visit the live site.
+14. After connecting your project to Heroku scroll down on Automatic Deploys button.
+
+15. This will ensure whenever you change something in the repo and push the changes to GitHub, Heroku will rebuild the app. If you select this manually you can manually deploy options further down. For this project, I did Automatic Deployment to enable me to check changes I made to the app as I developed it.
+
+16. Heroku will now build the app for you. Once it has completed the build process you will see a 'Your App Was Successfully Deployed' message and a link to the app to visit the live site.
 
 [Go Top](#Mochi-Restaurant)
 
@@ -352,6 +360,32 @@ To deploy this project on Heroku I used followed these steps:
            git clone https://github.com/USERNAME/REPOSITORY
 
 8.	Press Enter. Your local clone will be created.
+
+9. After this you need to cretae your own virtual environment, virtual environments are where dependencies are stored, You must activate the virtual environment using the source venv/bin/activate. To create the virtual environment use the following command in the terminal:
+
+             python3 -m venv venv
+             source venv/bin/activate
+
+10. Then you need to intsall the requirements.txt file with the following command:
+
+             pip install -r requirements.txt
+
+11. Create a secret key for the django app. It is easy to create, just type **Django Secret Key Generator** in the browser, then click on create a key copy and paste it in the setting.py.
+
+12. Rename your project.
+
+13. Migrate all your settings, the only migrations that should appear in each of your app’s migrations folders are called ‘__init__.py’. You  can delete any existing migrations and migrate from scratch. For migrations and migrate settings you need to run the following command in the terminal:
+
+         python manage.py makemigrations
+         python manage.py migrate
+
+14. Then you need to create a superuser to login to the admin page. To create the super user you need to run the following command:
+
+        python manage.py createsuperuser
+
+15. Finally, Start the development server and ensure everything is running without errors by useing the following command:
+
+         python manage.py runserver
 
 ### Forking a Repository
 1.	[Login](https://github.com/) into GitHub.

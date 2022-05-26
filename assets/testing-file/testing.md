@@ -146,6 +146,14 @@ The [W3C CSS Validator](https://jigsaw.w3.org/css-validator/) service was used t
 
 ## Test Coverage
 * The code tested with coverage tool, with the following result:
+I have used the Coverage library throughout testing to keep track of how much of my Python code was covered by the tests I had written. From running the coverage report my website has 89% of my code tested, with the following result:
+
+To generate your own coverage report from the command line:
+
+1. Install the package using `pip3 install coverage`
+2. Run `coverage run manage.py test`
+3. Then `coverage html` to generate the report
+4. You can view the report in a browser by using the command `python3 -m http.server` and opening the `index.html` file from inside the `htmlcov` folder.
 
 ![](/assets/testing-file/coverage-report.PNG)
 
