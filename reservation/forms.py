@@ -28,10 +28,11 @@ class CustomerForm(forms.ModelForm):
         name = self.cleaned_data.get("name")
         if not name.isalpha() and name.isnumeric():
             raise forms.ValidationError('Please enter valid name')
-        if len(name) == None or len(name) < 1:
+        if len(name) == '' or len(name) < 1:
             raise forms.ValidationError("Name field is required.")
         if '@' in name or '-' in name or '|' in name or '*' in name:
-            raise forms.ValidationError("Name should not have special characters.")
+            raise forms.ValidationError(
+                "Name should not have special characters.")
         return name
 
 
@@ -69,26 +70,27 @@ class CreateUserForm(UserCreationForm):
 
         """ Validate First name field  """
 
-        first_name = self.cleaned_data.get("first_name")
-        if not first_name.isalpha() and first_name.isnumeric():
+        f_name = self.cleaned_data.get("first_name")
+        if not f_name.isalpha() and f_name.isnumeric():
             raise forms.ValidationError('Please enter valid first name')
-        if len(first_name) == None or len(first_name) < 1:
+        if len(f_name) == '' or len(f_name) < 1:
             raise forms.ValidationError("First name field is required.")
-        if '@' in first_name or '-' in first_name or '|' in first_name or '*' in first_name:
-            raise forms.ValidationError("First name should not have special characters.")
-        return first_name
-
+        if '@' in f_name or '-' in f_name or '|' in f_name or '*' in f_name:
+            raise forms.ValidationError(
+                "First name should not have special characters.")
+        return f_name
 
     def clean_last_name(self, *args, **kwargs):
 
         """ Validate Last name field  """
 
-        last_name = self.cleaned_data.get("last_name")
-        if not last_name.isalpha() and last_name.isnumeric():
+        l_name = self.cleaned_data.get("last_name")
+        if not l_name.isalpha() and l_name.isnumeric():
             raise forms.ValidationError('Please enter valid last name')
-        if len(last_name) == None or len(last_name) < 1:
+        if len(l_name) == '' or len(l_name) < 1:
             raise forms.ValidationError("Last name field is required.")
-        if '@' in last_name or '-' in last_name or '|' in last_name or '*' in last_name:
-            raise forms.ValidationError("Last name should not have special characters.")
+        if '@' in l_name or '-' in l_name or '|' in l_name or '*' in l_name:
+            raise forms.ValidationError(
+                "Last name should not have special characters.")
 
-        return last_name
+        return l_name

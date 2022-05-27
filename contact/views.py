@@ -21,8 +21,8 @@ def send_email(request):
 
 
                 'From: ' + name,
-                'Message: ' + message,
-                'To' + email,
+                message,
+                email,
                 recipient_list,
 
                 )

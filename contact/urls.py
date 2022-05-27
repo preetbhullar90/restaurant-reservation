@@ -6,5 +6,4 @@ app_name = 'contact'
 
 urlpatterns = [
     path('', views.send_email, name='send_email'),
-
 ]

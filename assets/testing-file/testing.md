@@ -129,6 +129,14 @@ The [W3C CSS Validator](https://jigsaw.w3.org/css-validator/) service was used t
 
 ![](/assets/testing-file/css-pp4-testing-file.PNG)
 
+The [PEP8 Validator](http://pep8online.com/) service was used to validate the `Django` coded used.
+
+
+### **Django files check**
+
+![](/assets/testing-file/django-file-validation.PNG)
+
+
 ### Browser Validation
 - Chrome - [test image](/assets/testing-file/browser-test/chrome.PNG)
 - Edge - [test image](/assets/testing-file/browser-test/edge.PNG)

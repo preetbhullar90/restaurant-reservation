@@ -7,6 +7,8 @@ from django.contrib import messages
 from django.contrib.auth.decorators import login_required
 from .models import Table, Customer, Reservation
 from .forms import ReservationForm, CustomerForm, CreateUserForm
+from django.conf import settings
+from django.core.mail import send_mail
 
 
 def registerpage(request):
@@ -62,7 +64,6 @@ def logoutuser(request):
     return redirect('/')
 
 
-
 def check_table_availabilty(customer_requested_time, customer_requested_date):
     """ check availability against Reservation model using customer input """
 
@@ -99,6 +100,19 @@ def create_order(request):
             customer_requested_time = request.POST.get('time')
             customer_requested_guests = request.POST.get('persons')
             customer_name = request.POST.get('name')
+
+            # Send mail to the user when user send booking request
+            email = request.POST.get('email')
+            recipient_list = [settings.EMAIL_HOST_USER]
+            send_mail(
+                'From: Mochi Restaurant',
+                f'Hi, {customer_name.capitalize()} ,'
+                ' Your booking request has been sent successfully,'
+                ' we will respond to you shortly...',
+                email,
+                recipient_list,
+                ['preet@gmail.com'],
+                )
 
             date_formatted = datetime.datetime.strptime(
                 customer_requested_date, "%m/%d/%Y")
@@ -199,8 +213,19 @@ def update_reservations(request, pk):
             order.status = 'pending'
             order.table = None
             order.customer = None
-
             form.save()
+
+            # Send email to the user when user update the booking
+            email = request.POST.get('email')
+            recipient_list = [settings.EMAIL_HOST_USER]
+            send_mail(
+                'From: ' 'Mochi Restaurant',
+                ' Dear customer, Your booking has been updated successfully,'
+                ' we will respond to you shortly',
+                email,
+                recipient_list,
+                ['preet@gmail.com'],
+                )
             messages.add_message(request, messages.SUCCESS, "Thnx, your"
                                  " booking successfully updated.")
 
@@ -220,6 +245,18 @@ def delete_reservations(request, pk):
     order = Reservation.objects.get(id=pk)
     if request.method == 'POST':
         order.delete()
+
+        # Send email to the user when user deleted the booking
+        email = request.POST.get('email')
+        recipient_list = [settings.EMAIL_HOST_USER]
+        send_mail(
+            'From: ' 'Mochi Restaurant',
+            'Dear customer,'
+            ' Your booking has been deleted successfully',
+            email,
+            recipient_list,
+            ['preet@gmail.com'],
+            )
         messages.add_message(
                             request, messages.SUCCESS,
                             "Thanx, your booking successfully cancelled.")

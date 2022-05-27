@@ -14,4 +14,3 @@ def aboutus_list(request):
     }
 
     return render(request, 'aboutus/about.html', context)
-
