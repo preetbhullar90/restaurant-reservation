@@ -21,6 +21,17 @@ def registerpage(request):
         form = CreateUserForm(request.POST)
         if form.is_valid():
             form.save()
+            first_name = request.POST.get('first_name')
+            email = request.POST.get('email')
+            recipient_list = [settings.EMAIL_HOST_USER]
+            send_mail(
+                'From: Mochi Restaurant',
+                f'Hi, {first_name.capitalize()} ,'
+                ' Thank you for registering with mochi restaurant.',
+                email,
+                recipient_list,
+                ['preet@gmail.com'],
+                )
             username = form.cleaned_data['username']
             password = form.cleaned_data['password1']
             user = authenticate(username=username, password=password)
