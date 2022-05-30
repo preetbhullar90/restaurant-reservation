@@ -1,0 +1,29 @@
+{% extends 'mail-templates/mail_reserve_booking.html' %}
+{% load static %}
+{% block content %}
+
+
+<h1>Your booking has been canceled. We are really sorry to see you go.</h1>
+<h3>Hi {{name}},</h3>
+<p> This email confirms that your <a href="https://mochi-restaurant.herokuapp.com/">
+        Mochi Restaurant</a> booking has been canceled.</p>
+<p>We're really sorry to see you go, but thanks for giving us a try.</p>
+<hr />
+<h2> mochi-restaurant.herokuapp.com</h2>
+<p>If you have any questions,reach out to us at gurpreet.singhb90@gmail.com</p>
+<h2>Team Mochi Restaurant</h2>
+<hr />
+<p>Thanks for visiting mochi-restaurant.herokuapp.com</p>
+<hr />
+<p>Southall Brodway, UB11RT, London</p>
+<p><a href="https://mochi-restaurant.herokuapp.com/">https://mochi-restaurant.herokuapp.com/</a></p>
+<img class="email-image" src="https://www.linguahouse.com/linguafiles/md5/d01dfa8621f83289155a3be0970fb0cb"
+    alt="email image" />
+<p>This email was sent because you joined our retaurant email, online or at one
+    of our events . Your email address will not shared with anyone.</p>
+<p class="footer-note">
+    <strong>&copy; Mochi Restaurant.All Rights Reserved</strong>
+</p>
+<p class="footer-address">Southall Brodway, UB11RT, London</p>
+
+{% endblock content %}

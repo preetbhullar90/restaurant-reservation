@@ -28,7 +28,8 @@ def send_email(request):
 
             email = request.POST.get('email')
             html_message = render_to_string(
-                'contact/contacts-mail.html', {'name': request.user.first_name})
+                'contact/contacts-mail.html',
+                {'name': request.user.first_name})
             plain_message = strip_tags(html_message)
 
             send_mail(

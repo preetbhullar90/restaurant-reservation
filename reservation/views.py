@@ -7,12 +7,12 @@ from django.contrib import messages
 from django.contrib.auth.decorators import login_required
 from .models import Table, Customer, Reservation
 from .forms import ReservationForm, CustomerForm, CreateUserForm
-from django.conf import settings
 from django.core.mail import send_mail
+from django.template.loader import render_to_string
+from django.utils.html import strip_tags
 
 
 def registerpage(request):
-
     """ Registration form for user """
 
     form = CreateUserForm()
@@ -23,15 +23,18 @@ def registerpage(request):
             form.save()
             first_name = request.POST.get('first_name')
             email = request.POST.get('email')
-            recipient_list = [settings.EMAIL_HOST_USER]
+            html_message = render_to_string(
+                'Reservation/register_email.html', {'name': first_name})
+            plain_message = strip_tags(html_message)
+
             send_mail(
                 'From: Mochi Restaurant',
-                f'Hi, {first_name.capitalize()} ,'
-                ' Thank you for registering with mochi restaurant.',
-                email,
-                recipient_list,
-                ['preet@gmail.com'],
-                )
+                plain_message,
+                'mochi_restaurant@site.com',
+                [email],
+                fail_silently=False,
+                html_message=html_message,
+            )
             username = form.cleaned_data['username']
             password = form.cleaned_data['password1']
             user = authenticate(username=username, password=password)
@@ -49,7 +52,6 @@ def registerpage(request):
 
 
 def loginpage(request):
-
     """ Login function for user  """
 
     if request.method == 'POST':
@@ -68,7 +70,6 @@ def loginpage(request):
 
 
 def logoutuser(request):
-
     """" Logout function for users """
 
     logout(request)
@@ -82,7 +83,6 @@ def check_table_availabilty(customer_requested_time, customer_requested_date):
     no_tables_booked = len(Reservation.objects.filter(
         time=customer_requested_time,
         date=customer_requested_date, status="confirmed"))
-
     # Return number of tables
     return no_tables_booked
 
@@ -95,7 +95,6 @@ def check_table_in_restaurant():
 
 @login_required(login_url='/reserve_table/login')
 def create_order(request):
-
     """Create function for get Reservation form """
 
     form = ReservationForm()
@@ -113,18 +112,21 @@ def create_order(request):
             customer_name = request.POST.get('name')
 
             # Send mail to the user when user send booking request
+            from_email = request.user.email
             email = request.POST.get('email')
-            recipient_list = [settings.EMAIL_HOST_USER]
+            html_message = render_to_string(
+                'Reservation/create_booking_email.html',
+                {'name': request.user.first_name})
+            plain_message = strip_tags(html_message)
+
             send_mail(
                 'From: Mochi Restaurant',
-                f'Hi, {customer_name.capitalize()} ,'
-                ' Your booking request has been sent successfully,'
-                ' we will respond to you shortly...',
-                email,
-                recipient_list,
-                ['preet@gmail.com'],
-                )
-
+                plain_message,
+                'mochi_restaurant@yahoo.com',
+                [from_email, email],
+                fail_silently=False,
+                html_message=html_message,
+            )
             date_formatted = datetime.datetime.strptime(
                 customer_requested_date, "%m/%d/%Y")
 
@@ -156,11 +158,11 @@ def create_order(request):
                 venue.save()
                 customer_form.save()
                 messages.add_message(
-                        request, messages.SUCCESS,
-                        f"Thank you {customer_name}, your enquiry for "
-                        f"{customer_requested_guests} people at "
-                        f"{customer_requested_time} on "
-                        f"{customer_requested_date} has been sent.")
+                    request, messages.SUCCESS,
+                    f"Thank you {customer_name}, your enquiry for "
+                    f"{customer_requested_guests} people at "
+                    f"{customer_requested_time} on "
+                    f"{customer_requested_date} has been sent.")
 
                 # Return blank forms so the same enquiry isn't sent twice.
 
@@ -200,20 +202,18 @@ def reserve_table(request):
 
 @login_required(login_url='/reserve_table/login')
 def customer_table(request, pk):
-
     """ Function for get customer id """
 
     view_booking = Reservation.objects.filter(id=pk)
 
     context = {
         'view_booking': view_booking,
-        }
+    }
     return render(request, 'Reservation/view_reservation.html', context)
 
 
 @login_required(login_url='/reserve_table/login')
 def update_reservations(request, pk):
-
     """ funtion for update booking """
 
     order = Reservation.objects.get(id=pk)
@@ -225,18 +225,21 @@ def update_reservations(request, pk):
             order.table = None
             order.customer = None
             form.save()
-
             # Send email to the user when user update the booking
-            email = request.POST.get('email')
-            recipient_list = [settings.EMAIL_HOST_USER]
+            html_message = render_to_string(
+                'Reservation/update_booking_email.html',
+                {'name': request.user.first_name.capitalize()})
+            plain_message = strip_tags(html_message)
+            from_email = request.user.email
+
             send_mail(
-                'From: ' 'Mochi Restaurant',
-                ' Dear customer, Your booking has been updated successfully,'
-                ' we will respond to you shortly',
-                email,
-                recipient_list,
-                ['preet@gmail.com'],
-                )
+                'From: Mochi Restaurant',
+                plain_message,
+                'mochi_restaurant@site.com',
+                [from_email],
+                fail_silently=False,
+                html_message=html_message,
+            )
             messages.add_message(request, messages.SUCCESS, "Thnx, your"
                                  " booking successfully updated.")
 
@@ -250,7 +253,6 @@ def update_reservations(request, pk):
 
 @login_required(login_url='/reserve_table/login')
 def delete_reservations(request, pk):
-
     """ Create funtion for delete single booking in booking list """
 
     order = Reservation.objects.get(id=pk)
@@ -258,19 +260,23 @@ def delete_reservations(request, pk):
         order.delete()
 
         # Send email to the user when user deleted the booking
-        email = request.POST.get('email')
-        recipient_list = [settings.EMAIL_HOST_USER]
+        html_message = render_to_string(
+            'Reservation/delete_booking_email.html',
+            {'name': request.user.first_name.capitalize()})
+        plain_message = strip_tags(html_message)
+        from_email = request.user.email
+
         send_mail(
-            'From: ' 'Mochi Restaurant',
-            'Dear customer,'
-            ' Your booking has been deleted successfully',
-            email,
-            recipient_list,
-            ['preet@gmail.com'],
-            )
+            'From: Mochi Restaurant',
+            plain_message,
+            'mochi_restaurant@site.com',
+            [from_email],
+            fail_silently=False,
+            html_message=html_message,
+        )
         messages.add_message(
-                            request, messages.SUCCESS,
-                            "Thanx, your booking successfully cancelled.")
+            request, messages.SUCCESS,
+            "Thanx, your booking successfully cancelled.")
         return redirect('/reserve_table/')
     context = {
         'item': order,

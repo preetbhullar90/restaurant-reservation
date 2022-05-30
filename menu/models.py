@@ -9,7 +9,7 @@ class Meals(models.Model):
     name = models.CharField(max_length=50)
     description = models.TextField(max_length=500)
     category = models.ForeignKey(
-               'Category', on_delete=models.SET_NULL, null=True)
+        'Category', on_delete=models.SET_NULL, null=True)
     people = models.IntegerField()
     price = models.DecimalField(max_length=5, decimal_places=2, max_digits=5)
     image = CloudinaryField('image', default='placeholder')

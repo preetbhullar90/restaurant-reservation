@@ -11,7 +11,7 @@ def meal_list(request):
     context = {
         'meal_list': meal_list,
         'categories': categories,
-        }
+    }
 
     return render(request, 'Meals/list.html', context)
 

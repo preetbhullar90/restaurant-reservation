@@ -1,4 +1,4 @@
-(function() {
+(function () {
   "use strict";
 
   /**
@@ -110,7 +110,7 @@
   /**
    * Mobile nav toggle
    */
-  on('click', '.mobile-nav-toggle', function(e) {
+  on('click', '.mobile-nav-toggle', function (e) {
     select('#navbar').classList.toggle('navbar-mobile');
     this.classList.toggle('bi-list');
     this.classList.toggle('bi-x');
@@ -119,7 +119,7 @@
   /**
    * Mobile nav dropdowns activate
    */
-  on('click', '.navbar .dropdown > a', function(e) {
+  on('click', '.navbar .dropdown > a', function (e) {
     if (select('#navbar').classList.contains('navbar-mobile')) {
       e.preventDefault();
       this.nextElementSibling.classList.toggle('dropdown-active');
@@ -129,7 +129,7 @@
   /**
    * Scrool with ofset on links with a class name .scrollto
    */
-  on('click', '.scrollto', function(e) {
+  on('click', '.scrollto', function (e) {
     if (select(this.hash)) {
       e.preventDefault();
 
@@ -178,9 +178,9 @@
 
       let menuFilters = select('#menu-flters li', true);
 
-      on('click', '#menu-flters li', function(e) {
+      on('click', '#menu-flters li', function (e) {
         e.preventDefault();
-        menuFilters.forEach(function(el) {
+        menuFilters.forEach(function (el) {
           el.classList.remove('filter-active');
         });
         this.classList.add('filter-active');
@@ -188,7 +188,7 @@
         menuIsotope.arrange({
           filter: this.getAttribute('data-filter')
         });
-        menuIsotope.on('arrangeComplete', function() {
+        menuIsotope.on('arrangeComplete', function () {
           AOS.refresh();
         });
       }, true);
@@ -288,7 +288,7 @@ setTimeout(function () {
 /* Javascript for Register and Login form inputs*/
 
 
-function valuenull(){
+function valuenull() {
   let form_field1 = document.getElementById('id_username');
   let form_field2 = document.getElementById('id_first_name');
   let form_field3 = document.getElementById('id_last_name');
@@ -296,48 +296,31 @@ function valuenull(){
   let form_field5 = document.getElementById('id_password1');
   let form_field6 = document.getElementById('id_password2');
 
-  if (form_field1,form_field2,form_field3,form_field4,form_field5,form_field6 !== null) {
-    form_field1.placeholder='Username..', form_field1.className += 'form-control text-white shadow-none ';
-    form_field1.style.borderColor='#625b4b',
-    form_field1.style.backgroundColor='#0c0b09';
+  if (form_field1, form_field2, form_field3, form_field4, form_field5, form_field6 !== null) {
+    form_field1.placeholder = 'Username..', form_field1.className += 'form-control text-white shadow-none ';
+    form_field1.style.borderColor = '#625b4b',
+      form_field1.style.backgroundColor = '#0c0b09';
 
-    form_field2.placeholder='Firstname..', form_field2.className += 'form-control text-white shadow-none';
-    form_field2.style.borderColor='#625b4b',
-    form_field2.style.backgroundColor='#0c0b09';
+    form_field2.placeholder = 'Firstname..', form_field2.className += 'form-control text-white shadow-none';
+    form_field2.style.borderColor = '#625b4b',
+      form_field2.style.backgroundColor = '#0c0b09';
 
-    form_field3.placeholder='Lastname..', form_field3.className += 'form-control text-white shadow-none';
-    form_field3.style.borderColor='#625b4b',
-    form_field3.style.backgroundColor='#0c0b09';
+    form_field3.placeholder = 'Lastname..', form_field3.className += 'form-control text-white shadow-none';
+    form_field3.style.borderColor = '#625b4b',
+      form_field3.style.backgroundColor = '#0c0b09';
 
-    form_field4.placeholder='Email..', form_field4.className += 'form-control text-white shadow-none';
-    form_field4.style.borderColor='#625b4b',
-    form_field4.style.backgroundColor='#0c0b09';
+    form_field4.placeholder = 'Email..', form_field4.className += 'form-control text-white shadow-none';
+    form_field4.style.borderColor = '#625b4b',
+      form_field4.style.backgroundColor = '#0c0b09';
 
-    form_field5.placeholder='Password..', form_field5.className += 'form-control text-white shadow-none';
-    form_field5.style.borderColor='#625b4b',
-    form_field5.style.backgroundColor='#0c0b09';
+    form_field5.placeholder = 'Password..', form_field5.className += 'form-control text-white shadow-none';
+    form_field5.style.borderColor = '#625b4b',
+      form_field5.style.backgroundColor = '#0c0b09';
 
-    form_field6.placeholder='Confirm..', form_field6.className += 'form-control text-white shadow-none';
-    form_field6.style.borderColor='#625b4b',
-    form_field6.style.backgroundColor='#0c0b09';
-    }
+    form_field6.placeholder = 'Confirm..', form_field6.className += 'form-control text-white shadow-none';
+    form_field6.style.borderColor = '#625b4b',
+      form_field6.style.backgroundColor = '#0c0b09';
+  }
 
 }
 valuenull()
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

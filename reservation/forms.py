@@ -22,7 +22,6 @@ class CustomerForm(forms.ModelForm):
         fields = ('name', 'email', 'phone')
 
     def clean_name(self, *args, **kwargs):
-
         """ Validate Name field  """
 
         name = self.cleaned_data.get("name")
@@ -67,7 +66,6 @@ class CreateUserForm(UserCreationForm):
                   'email', 'password1', 'password2']
 
     def clean_first_name(self, *args, **kwargs):
-
         """ Validate First name field  """
 
         f_name = self.cleaned_data.get("first_name")
@@ -81,7 +79,6 @@ class CreateUserForm(UserCreationForm):
         return f_name
 
     def clean_last_name(self, *args, **kwargs):
-
         """ Validate Last name field  """
 
         l_name = self.cleaned_data.get("last_name")

@@ -8,7 +8,6 @@ class ContactForm(forms.Form):
     message = forms.CharField(widget=forms.Textarea)
 
     def clean_name(self, *args, **kwargs):
-
         """ Validate Name field  """
 
         name = self.cleaned_data.get("name")
