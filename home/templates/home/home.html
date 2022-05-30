@@ -3,6 +3,13 @@
 {% block content %}
 
 <section id="about" class="about">
+  <div class="input-group justify-content-center mb-4">
+    {% for message in messages  %}
+    <div class="alert alert-success" id="msg">
+      <strong>{{ message }}</strong>
+    </div>
+    {% endfor %}
+  </div>
   <div class="container" data-aos="fade-up">
     <div class="row">
       <div class="col-lg-6 order-1 order-lg-2" data-aos="zoom-in" data-aos-delay="100">

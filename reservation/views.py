@@ -41,7 +41,8 @@ def registerpage(request):
             if user is not None:
                 login(request, user)
 
-            messages.success(request, 'Account has been created ')
+            messages.success(
+                request, f'{username} your account has been created ')
 
             return redirect('/')
 

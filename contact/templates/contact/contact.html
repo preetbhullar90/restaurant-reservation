@@ -11,8 +11,8 @@
     </div>
   </div>
 
-  <div class="container" data-aos="fade-up" id="msg">
-    <div class="input-group justify-content-center mb-4" id="msg">
+  <div class="container" data-aos="fade-up">
+    <div class="input-group justify-content-center mb-4">
       {% for message in messages  %}
       <div class="alert alert-success" id="msg">
         <strong>{{ message }}</strong>
@@ -62,7 +62,6 @@
 
       <div class="col-lg-8 mt-5 mt-lg-0">
 
-        <h5 id="text" class="text-danger"></h5>
         {% if form.errors %}
         {% for field in form %}
         {% for error in field.errors %}
@@ -72,16 +71,6 @@
         {% endfor %}
         {% endfor %}
         {% endif %}
-
-        <div class="input-group justify-content-center mb-4">
-          {% for message in messages  %}
-          <div class="alert alert-success" id="msg">
-            <strong>{{ message }}</strong>
-          </div>
-          {% endfor %}
-        </div>
-
-
 
         <form action="{% url 'contact:send_email' %}" method="POST">
           <div class="col-md-6 form-group mt-3 mt-md-0">
