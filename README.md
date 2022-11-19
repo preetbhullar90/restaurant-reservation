@@ -2,7 +2,7 @@
 
 ![Mochi Restaurant Images](assets/testing-file/am-i-responsive1.PNG)
 
-[View the live project here](https://mochi-restaurant.herokuapp.com)
+[View the live project here](https://mochi-restaurant.onrender.com/)
 
 ## Contents
 1. [Introduction](#Introduction)
@@ -41,7 +41,7 @@
 
 This is my 4th project at code institute. This project is a restaurant website designed to advertise the restaurant and to allow the customer to make and manage any bookings. On this website, customers need to login or register on the website, where they can manage their booking, by logging on they can view, delete and change their bookings. If the customer does not login or register, they will only see a login option on the booking page. This website is deployed on Heroku.
 
-[View the live project here](https://mochi-restaurant.herokuapp.com)
+[View the live project here](https://mochi-restaurant.onrender.com/)
 
 [Go Top](#Mochi-Restaurant)
 
