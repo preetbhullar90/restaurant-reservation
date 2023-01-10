@@ -1,6 +1,6 @@
 from django.shortcuts import render
 from menu.models import Meals, Category
-from aboutus.models import AboutUs, Why_Choose_Us, Chef
+from aboutRestaurant.models import AboutUs, Why_Choose_Us, Chef
 from contact.forms import ContactForm
 
 

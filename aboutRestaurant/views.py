@@ -2,7 +2,7 @@ from django.shortcuts import render
 from .models import AboutUs, Why_Choose_Us, Chef
 
 
-def aboutus_list(request):
+def about_us(request):
     about = AboutUs.objects.last()
     why_choose_us = Why_Choose_Us.objects.all()
     chef = Chef.objects.all()
@@ -13,4 +13,4 @@ def aboutus_list(request):
         'chef': chef,
     }
 
-    return render(request, 'aboutus/about.html', context)
+    return render(request, 'Aboutus/aboutus.html', context)

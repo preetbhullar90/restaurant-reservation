@@ -51,9 +51,9 @@ INSTALLED_APPS = [
     'cloudinary_storage',
     'django.contrib.staticfiles',
     'cloudinary',
+    'aboutRestaurant',
     'menu',
     'home',
-    'aboutus',
     'contact',
     'reservation',
 
